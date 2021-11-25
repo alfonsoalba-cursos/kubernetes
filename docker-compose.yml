@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  slides:
+    image: kubernetes-course
+    build:
+      context: ./slides
+      dockerfile: ../Dockerfile
+    volumes: 
+      - ./slides:/usr/share/nginx/html
+    ports:
+      - 8080:80
