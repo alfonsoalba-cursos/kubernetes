@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Arquitectura</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Arquitectura de Kubernetes</h1>
+					<aside class="notes" data-markdown>
+						En esta sección vamos a aprender cuál es la arquitectura de un cluster de Kubernetes.
+
+						Entender las piezas que forman el puzzle de Kubernetes nos ayudará a entender mejor
+						qué ocurre cuando ejecutemos el comando `kubectl` y que papel juegan los
+						distintos recursos (Pods, Deployments, Services, Secrets, etc).
+					</aside>
+				</section>
+				<section>
+				<img src="../../images/high_level_node_architecture.png" alt="high level node architecture">
+				<aside class="notes" data-markdown>
+					En esta imagen vemos una representación de un cluster de Kubernetes a muy alto nivel.
+
+					Tenemos tres piezas en el puzzle:
+					* El nodo maestro (_master_): que es la parte "pensante" del cluster. Es el responsable
+					de gestionar el cluster. Por ejemplo, es el que recibe
+					las peticiones cuando ejecutamos el comando `kubectl`, las procesa y o bien las ejecuta o las 
+					distribuye para que sean ejecutadas en los workers. También es el responsable de orquestar
+					los nodos de trabajo, que es donde nuestras aplicaciones acabarán ejecutándose.
+					* Los nodos de trabajo (_workers_): son los que se ejecutan los pods. Contienen todos
+					los servicios necesarios para poder gestionar contenedores, gestionar la red, configurar la comunicación entre contenedores, 
+					comunicarse con el maestro y asignar recursos a los contenedores de los pods entre otras 
+					responsabilidades
+					* Otros elementos: El cluster puede tener acceso a "elementos externos" e integrarse con ellos. 
+					Por ejemplo, durante el curso veremos que los proveedores de clusters gestionados tienen integrado
+					sus servicios con Kubernetes. Esta integración permite, por ejemplo, levantar un balanceador de carga o utilizar discos duros
+					de su infraestrucutra definiendo los recursos dentro de Kubernetes ¡sin necesidad de 
+					configurarlos nosotros usando sus herramientas! 
+					Otro ejemplo es `etcd`. Con objeto de implentar
+					alta disponibilidad en la base de datos `etcd`, se suele montar en un cluster en lugar de utilizar
+					una única instancia de `etcd` en el nodo maestro.
+
+					En las siguientes diapositivas, entraremos un poco más en detalle a ver qué Contiene el 
+					nodo maestro y los nodos de trabajo.
+				</aside>       
+				</section>
+        <section>
+          <section>
+            <h2>El nodo maestro</h2>
+            <img src="../../images/master_node_architecture.png" alt="Master node architecture">
+          </section>
+          <section>
+            <h2><code>etcd</code></h2>
+            <ul>
+              <li>
+                <a href="https://etcd.io/" target="_blank" rel="noopener noreferrer"><code>etcd</code></a>
+                 es una base datos clave valor, simple, distribuida y confiable
+              </li>
+              <li>
+                Almacena la información del cluster (número de nodos, estado, <em>namespaces</em>, etc) y objetos de la API
+              </li>
+              <li>
+                Solo es accesible desde el <em>API Server</em>
+              </li>
+              <li><a href="https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/" target="_blank" rel="noopener noreferrer">Más información 🔗</a></li>
+            </ul>
+          </section>
+          <section>
+            <h2><code>kube-apiserver</code></h2>
+            <ul>
+              <li>Entidad principal de la gestión del cluster</li>
+              <li>
+                Es el <em>frontend</em> del cluster.
+              </li>
+              <li>Se comunica con <code>etcd</code> y se asegura de ña consistencia de los datos.</li>
+              <li><a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/" target="_blank" rel="noopener noreferrer">Más información 🔗</a></li>
+            </ul>
+  
+            <aside class="notes" data-markdown>
+              Recibe todas las peticiones REST (por ejemplo a través de <code>kubectl</code>)
+              para gestionar los recursos de Kubernetes (Pods, Deployments, Services...). Por eso se dice
+              que es el _frontend_ del cluster.
+  
+              _kube-apiserver_ se encarga, cuando escribe en la base de datos `etcd` de que la información
+              que se almacena es congruente con los que hay en los nodos del cluster.
+            </aside>
+          </section>
+          <section>
+            <h2><code>kube-controller-manager</code></h2>
+            <ul>
+              <li>Ejecutar procesos de control en segundo plano</li>
+              <li>
+                Consta de varios controladores que se encargan de que el cluster esté en el
+                estado que se desea que esté
+              </li>
+              <li>Ejemplos de controladores: replication controller, endpoints controller, namespace controller, y serviceaccounts controller.</li>
+  
+              <li><a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/" target="_blank" rel="noopener noreferrer">Más información 🔗</a></li>
+            </ul>
+            <aside class="notes" data-markdown>
+              Ejemplos de tareas que esta capa de controladores se encarga de controlar:
+              * número de réplicas es el que tiene que se
+              * si se actualiza la imagen de un pod, modifica los nodos para que se despliegue la nueva imagen
+            </aside>
+          </section>
+          <section>
+            <h2><code>cloud-controller-manager</code></h2>
+            <ul>
+              <li>Controladores específicos de los proveedores de cloud</li>
+              <li>Permite enlazar el cluster con la API del proveedor de servicios en la nube</li>
+              <li><a href="https://kubernetes.io/docs/concepts/overview/components/#cloud-controller-manager" target="_blank" rel="noopener noreferrer">Más información 🔗</a></li>
+            </ul>
+          </section> 
+          <section>
+            <h2><code>kube-scheduler</code></h2>
+            <ul>
+              <li>
+                Ayuda a programar los pods y desplegarlos en los nodos teniendo
+                en cuenta los recursos disponibles de memoria y procesador de los nodos y los
+                requisitos de cada pod.
+              </li>
+            </ul>
+            <aside class="notes" data-markdown>
+              Por ejemplo, si queremos desplegar un Pod que requiere 2G de memoria RAM y 3 CPUs,
+              esta componente es la que se encarga de encontrar el nodo adecuado para desplegar
+              ese Pod.
+
+              Por este motivo, esta componente debe saber cuáles son los recursos del cluster disponibles 
+              tanto en el cluster como en cada uno de los nodos.
+            </aside>
+          </section> 
+        </section>
+        <section>
+          <section>
+            <h2>Nodos de trabajo</h2>
+            <img src="../../images/worker_node_architecture.png" alt="Worker node architecture">  
+          </section>
+          <section>
+            <h2><code>kubelet</code></h2>
+            <ul>
+              <li>Servicio principal que se ejecuta en los nodos</li>
+              <li>Responsable de que los pods y sus contenedores estén en el estado deseado</li>
+              <li>Informa al nodo maestro del estado del nodo en el que se ejecuta</li>
+              <li><a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" target="_blank" rel="noopener noreferrer">Más información 🔗</a></li>
+            </ul>
+            <aside class="notes" data-markdown>
+              `kubelet` funciona mediante `PodSpec`. Un `PodSpec` es un objeto YAML o JSON
+              que contiene la especificación completa de un Pod. `kubelet` recibe uno o varios
+              objetos `PodSpec` y se asegura de que los contenedores ejecutados en el nodo cumplen
+              con esa especificación y están levantados y ejecutándose.
+
+              `kubelet` recibe los `PodSpec` desde el `kube-apiserver`, aunque se le pueden cargar
+              desde un fichero o realizando peticiones HTTP.
+            </aside>
+          </section>
+          <section>
+            <h2><code>kubeproxy</code></h2>
+            <ul>
+              <li>
+                Se encarga de configurar la red del nodo para que cumpla con la especificación de los
+                objetos `Service` para ese nodo
+              </li>
+              <li>Gestiona las subredes, expone los puertos y reenvía las peticiones a los nodos adecuados del cluster.</li>
+              <li>Se comunica principalmente con <code>iptables</code></li>
+              <li><a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/"                             m target="_blank" rel="noopener noreferrer">Más información 🔗</a></li>
+            </ul>
+          </section>
+          <section>
+            <img src="../../images/kube_proxy_example.png" alt="">
+            <aside class="notes" data-markdown>
+              En este ejemplo se pueden ver dos ejemplos de cómo funciona kube-proxy. 
+
+              * En la petición 1, el tercer nodo recibe una petición a través del balanceador de carga
+                que va dirigida a uno de los pods del cluster. Utilizando la red interna de ese pod, 
+                reenvía la petición por esa subred.
+              
+              * En la petición 2, el primer nodo recibe una petición directa que debe servirse por un
+                pod que está situado en el nodo 2. `kube-proxy` reenvía la petición al nodo correcto, que
+                a su vez la reenvía al pod a través de la subred de ese nodo.
+            </aside>
+          </section>
+        </section>
+        <section>
+          <h2>Resumen</h2>
+          <ul>
+            <li>Arquitectura a alto nivel de un cluster de kubernetes</li>
+            <li>Servicios que se ejecutan en el nodo maestro</li>
+            <li>Servicios que se ejecutan en los nodos de trabajo</li>
+          </ul>
+        </section>
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
