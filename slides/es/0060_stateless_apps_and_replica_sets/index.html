@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>ReplicationController</title>
+
+    <link rel="stylesheet" href="../../dist/reset.css">
+    <link rel="stylesheet" href="../../dist/reveal.css">
+    <link rel="stylesheet" href="../../dist/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2><code>ReplicationController</code></h2>
+          <aside class="notes" data-markdown>
+            En esta sección veremos qué es el objeto `ReplicationController` y hablaremos
+            de la diferencia que hay entre sistemas con y sin estado.
+          </aside>
+        </section>
+        <section>
+          <section>
+            <h1><code>Sistemas con estado vs sin estado</code></h1>
+          </section>
+          <section>
+            <h2>Sistemas sin estado</h2>
+            <p>No guardan información sobre las operaciones anteriores ni se hace referencia a ellas</p> 
+            <p>Cada operación se lleva a cabo desde cero, como si fuera la primera vez</p>
+            <p>Ejemplos: El frontal de una aplicación web, un microservicio que comprime ficheros,
+              un servicio que convierte imágenes de un formato a otro
+            </p>
+          </section>
+          <section>
+            <h2>Sistemas con estado</h2>
+            <p>Una operación puede hacer referencia o verse afectada por las operaciones anteriores</p>
+            <p>Ejemplos: cualquier base de datos, un wordpress...</p>
+          </section>
+          <section>
+            <section>
+              <h2>Kubernetes y sistemas sin estado</h2>
+              <p>Pueden escalar horizontalmente</p>
+              <img src="../../images/stateles_cluster_low_traffic.png" alt="">
+              <aside class="notes" data-markdown>
+                Imaginemos que tenemos una aplicación web con un frontal sin estado que está
+                desplegado en nuestro cluster en un pod.
+  
+                Al tratarse de un sistema sin estado, todos los pods responderán a la aplicación de la misma 
+                manera, ya tengamos uno, cien o mil.
+  
+                En esta imagen, supongamos que con un solo pod somos capaces de absorver el tráfico
+                que recibe la aplicación.
+              </aside>
+            </section>
+            <section>
+              <img src="../../images/stateles_cluster_high_traffic.png" alt="">
+            </section>
+            <aside class="notes" data-markdown>
+              ¿Qué ocurre si ese tráfico aumenta? Pues que al tratarse de un pod sin estado,
+              podemos escalarlo fácilmente ya que cualquier pod que añadamos al sistema y reciba
+              peticiones, las procesaré de la misma manera.
+            </aside>
+          </section>
+          <section>
+            <p>El objeto de kubernetes responsable de este escalado horizontal es
+              <a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/" target="_blank" rel="noopener noreferrer"><code>ReplicaSet</code></a>
+            </p>
+            <aside class="notes" data-markdown>
+              Hace unas versiones de Kubernetes que este objeto es el recomendado, usado junto con
+              el `Deployment`, para gestionar la replicación dentro de un cluster de Kubernetes. 
+              El anterior objeto, [`ReplicationController`](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/)
+              ya no se recomienda y se espera que en futuras versiones acabe siendo abandonado.
+            </aside>
+            </section>  
+          </section>
+          <section>
+            <section>
+              <h2>Kubernetes y sistemas con estado</h2>
+              <p>¿Qué hacemos si necesitamos desplegar una aplicación con estado?</p>  
+              <aside class="notes" data-markdown>
+                Si queremos desplegar una aplicación con estado dentro del cluster, necesitaremos
+                ser capaces de guardar el estado para que las peticiones puedan acceder a este
+                estado y actuar en consencia.
+
+                Imaginemos un wordpress en el que subimos una imagen y luego queremos mostrarla
+                en la página ¿cómo persistimos los cambios?
+              </aside>
+            </section>
+            <section>
+              <h2>¿Cómo podemos persistir el estado?</h2>
+              <p>Volumes</p>
+              <aside class="notes" data-markdown>
+                La herramienta que nos permitirá persistir el estado son los volúmenes, a los que dedicaremos una sección
+                más adelante dentro del curso.
+              </aside>
+            </section>
+          </section>
+
+          <section>
+            <section>
+              <h2>Aplicaciones sin estado</h2>
+              <aside class="notes" data-markdown>
+                Vamos a ver algunas sugerencias para diseñas aplicaciones sin estado
+                que nos permitan escalar horizontalmente.
+  
+                No vamos a entrar en detalle sobre este asunto, ya que no es el objetivo del curso,
+                pero sí que veremos algunos conceptos a tener en cuenta cuando diseñemos la 
+                arquitectura de nuestras aplicaciones.
+              </aside>              
+            </section>
+            <section>
+              <h2>No almacenar nada en los contendores</h2>
+              <ul>
+                <li>⛔ Sesiones: guardarlas en la base de datos o en volúmenes.</li>
+                <li>⛔ Ficheros: nunca dentro de los contenedores</li>
+                <li>⛔ Logs: extraer los logs de los pods</li>
+                <li>⛔ Configuración</li>
+                <li>ℹ️ Más información: <a href="https://12factor.net/"" target="_blank" rel="noopener noreferrer">The 12 factor App</a></li>
+              </ul>
+              <aside class="notes" data-markdown>
+                * **Sesiones**: por defecto, algunos frameworks guardan las sesiones en ficheros de disco
+                (por ejemplo Ruby On Rails). Cambiar la configuración para que la carpeta en la que se 
+                almacenan estén en un volumen o, mejor aún, guardarlas en base de datos.
+
+                * **Ficheros**: recuerda que los contenedores son efímeros. Si el proceso
+                `kubelet` de un nodo destruye un pod y lo vuelve a crear, perderás los ficheros. Podemos
+                utilizar sistemas de ficheros de red o guardarlos en buckets de nuestro proveedor cloud,
+                pero nunca en el sistema de ficheros del contenedor.
+
+                * **Logs**: los logs son muchas veces son ficheros por lo que de nuevo, no debemos
+                almacenarlos dentro de los contenedores. El mejor enfoque para los logs es tratarlos
+                como si fuese un _event stream_: sacamos los logs por la salida estándar y los procesamos
+                por aplicaciones que leen este _stream_ (por ejemplo `logstash`, `fluentd`, etc) y
+                lo procesan, almacenan o reenvían a otros sistemas como Splunk/Kibana para su indexación y análisis.
+                Hagas lo que hagas, no los guardes en el pod/contenedor.
+
+                * **Configuración**: La configuración debe injectarse en los pods, no almacenarse dentro del código
+                fuente. Ya sea a través de variables de entorno o volúmenes, la configuración debe almacenarse en el 
+                entorno de ejecución (_environment_) no dentro del pod. De esta forma, los cambios en la configuración
+                pueden procesarse de forma diferente a los cambios en el código.
+
+                Os facilito un enlace a la página The twelve-factor app, donde podemos encontrar
+                más información sobre este tema. Además, una búsqueda en google sobre "stateful apps"
+                os llevará a un sin fin de recursos sobre el tema.
+              </aside>
+            </section>
+          </section>
+
+      </div>
+    </div>
+
+    <script src="../../dist/reveal.js"></script>
+    <script src="../../plugin/notes/notes.js"></script>
+    <script src="../../plugin/markdown/markdown.js"></script>
+    <script src="../../plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+  </body>
+</html>
