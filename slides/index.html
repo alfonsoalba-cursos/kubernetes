@@ -123,6 +123,28 @@
 								</div>
 						</div>
 					</div> <!-- END Sección ReplicationController -->
+
+					<div class="accordion-item"> <!-- Sección Servicios -->
+						<h2 class="accordion-header" id="panelsStayOpen-deployments">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseDeployments" aria-expanded="false" aria-controls="panelsStayOpen-collapseArchitecture">
+								7.&nbsp;<code>Deployment</code>
+						</button>
+						</h2>
+						<div id="panelsStayOpen-collapseDeployments" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-deployments">
+								<div class="accordion-body">
+										<p>
+											En la sección anterior vimos cómo mantener levantadas en kubernetes un número de replicas de nuestra aplicación.
+											Sin embargo, el objeto <span class="font-monospace">ReplicaSet</span> es engorroso de utilizar y tiene algunas limitaciones. Por eso surgió el 
+											objeto <span class="font-monospace">Deployment</span>. Esta es la forma recomendada de desplegar los Pods, y en esta sección
+											veremos cómo utilizarlos.
+										</p>
+										<ul>
+												<li><a href="es/0070_deployments/index.html" class="text-decoration-none text-reset">Diapositivas 🔗</a></li>
+												<li>Taller: Desplegar 3 instancias de nuestra aplicación con un <span class="font-monospace">Deployment</span></li>
+										</ul>
+								</div>
+						</div>
+					</div> <!-- END Sección deployments -->
 				</div>		
 			</main>
 
