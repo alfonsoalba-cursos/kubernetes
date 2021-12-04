@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Sondas</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/sky.css">
+		<link rel="stylesheet" href="../../dist/custom.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>Sondas (<code>Probes</code>)</h3>
+					<ul>
+						<li><em>Liveness probes</em></li>
+						<li><em>Readiness probes</em></li>
+					</ul>
+					<aside class="notes" data-markdown>
+						En esta sección veremos los dos tipos de sondas que podemos definir para 
+						nuestros pods. Serán nuestra primera incursión en el ciclo de vida de un
+						pod que veremos más adelante en el curso.
+					</aside>
+				</section>
+				<section 
+					data-markdown="probes.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-separator-notes="^Note:"
+					data-charset="utf8">
+		   		</section>
+				<section 
+					data-markdown="usage.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-separator-notes="^Note:"
+					data-charset="utf8">
+		   		</section>
+				<section 
+				  data-markdown="summary.md"
+				  data-separator="^------"
+				  data-separator-vertical="^\^\^\^\^\^\^"
+				  data-separator-notes="^Note:"
+				  data-charset="utf8">
+				</section>			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
