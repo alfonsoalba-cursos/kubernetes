@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Ciclo de vida de un Pod</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/sky.css">
+		<link rel="stylesheet" href="../../dist/custom.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>Ciclo de vica de un <code>Pod</code></h3>
+					<aside class="notes" data-markdown>
+						Una vez hemos visto cómo podemos acceder a nuestros `Pods`, tanto desde dentro como desde fuera
+						del cluster, ha llegado el momento de entender cuál es el ciclo de vida de un `Pod`.
+						Entenderlo nos ayudará a comprender mejor la información que Kubernetes nos da de los `Pods`,
+						diagnosticar los problemas con más precisión y saber qué está pasando cuando las cosas se tuerzan.
+					</aside>
+				</section>
+				<section 
+					data-markdown="scheduling.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-separator-notes="^Note:"
+					data-charset="utf8">
+		   		</section>
+				<section 
+					data-markdown="pod_phase.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-separator-notes="^Note:"
+					data-charset="utf8">
+		   		</section>
+				<section 
+				   data-markdown="pod_conditions.md"
+				   data-separator="^------"
+				   data-separator-vertical="^\^\^\^\^\^\^"
+				   data-separator-notes="^Note:"
+				   data-charset="utf8">
+				</section>
+				<section 
+				   data-markdown="container_status.md"
+				   data-separator="^------"
+				   data-separator-vertical="^\^\^\^\^\^\^"
+				   data-separator-notes="^Note:"
+				   data-charset="utf8">
+				</section>
+				<section 
+				   data-markdown="understanding_pod_lifecycle.md"
+				   data-separator="^------"
+				   data-separator-vertical="^\^\^\^\^\^\^"
+				   data-separator-notes="^Note:"
+				   data-charset="utf8">
+				</section>
+				<section 
+				  data-markdown="summary.md"
+				  data-separator="^------"
+				  data-separator-vertical="^\^\^\^\^\^\^"
+				  data-separator-notes="^Note:"
+				  data-charset="utf8">
+				</section>			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
