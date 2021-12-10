@@ -2,8 +2,8 @@
 
 En este taller prepararemos una máquina virtual con Linux que podremos utilizar para correr minikube.
 
-Utilizaremos Ubuntu 21.04 como distribución de Linux dentro de la máquina virtual. Si ya dispones de una 
-máquina virtual con Ubuntu, puedes ir directamente a la sección [Instalación de docker](#instalación-de-docker).
+Utilizaremos Ubuntu 21.10 como distribución de Linux dentro de la máquina virtual. Si ya dispones de una 
+máquina virtual con Ubuntu, puedes ir directamente a la sección [Instalación de docker](/#instalación-de-docker).
 
 ## Creación de la máquina virtual
 
