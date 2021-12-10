@@ -219,7 +219,7 @@ vagrant@ubuntu-hirsute:~$ sudo install minikube /usr/local/bin/
 Una vez instalado, lo levantamos:
 
 ```shell
-vagrant@ubuntu-hirsute:~$ minikube start --driver=none
+vagrant@ubuntu-hirsute:~$ minikube start --driver=docker
 😄  minikube v1.24.0 on Ubuntu 21.04 (vbox/amd64)
 ✨  Using the none driver based on user configuration
 👍  Starting control plane node minikube in cluster minikube
