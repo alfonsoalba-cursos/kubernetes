@@ -1,14 +1,13 @@
-# Instalación de minikube en Linux
+# Instalación de minikube en una máquina virtual con Linux
 
-En este taller prepararemos la máquina virtual en Linux que utilizaremos durante
-el resto del curso.
+En este taller prepararemos una máquina virtual con Linux que podremos utilizar para correr minikube.
 
-Utilizaremos Ubuntu 21.04 como distribución de Linux. Si ya dispones de una 
-máquina virtual (o física) con Ubuntu, puedes saltarte la siguiente sección.
+Utilizaremos Ubuntu 21.04 como distribución de Linux dentro de la máquina virtual. Si ya dispones de una 
+máquina virtual con Ubuntu, puedes ir directamente a la sección [Instalación de docker](/#instalación-de-docker).
 
 ## Creación de la máquina virtual
 
-El procedimiento de instalación es el mismo para Linux, Windows o MacOS.
+El procedimiento de instalación es muy parecido para Linux, Windows o MacOS.
 ### Requisitos previos
 #### Virtual Box
 
