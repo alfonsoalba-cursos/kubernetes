@@ -1,0 +1,18 @@
+Vagrant.configure("2") do |config|
+  # Usaremos la versión de Ubuntu 21.04
+  config.vm.box = "ubuntu/hirsute64"
+
+
+  config.vm.disk :disk, size: "50GB", primary: true
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 4096
+    vb.cpus   = 2
+    #Enable Virtualization of Nesting VM to allow Vm inside VM
+    vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    apt update
+    apt upgrade -y
+  SHELL
+end
