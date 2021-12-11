@@ -27,10 +27,10 @@ Clona este repositorio:
 > git clone https://github.com/alfonsoalba-cursos/kubernetes.git
 ```
 
-Accede a la carpeta labs/es/instalacion-minikube-en-linux:
+Accede a la carpeta labs/es/instalacion-minikube-en-maquina-virtual-linux:
 
 ```
-> cd labs/es/instalacion-minikube-en-linux
+> cd labs/es/instalacion-minikube-en-maquina-virtual-linux
 ```
 
 Crea la máquina virtual:
