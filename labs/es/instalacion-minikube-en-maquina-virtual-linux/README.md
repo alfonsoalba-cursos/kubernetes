@@ -17,17 +17,7 @@ Nota: en MacOS es posible instalar VirtualBox usando `brew`: `brew install virtu
 #### Vagrant
 Descarga e instala `Vagrant` (puedes descargarlo de [este enlace](https://www.vagrantup.com/downloads)).
 
-Nota: en MacOS es posible instalar Virtual Box usando `brew`: `brew install vagrant`
-
-Una vez instalado, instala el plugin `vagrant-disksize`:
-
-```
-> vagrant plugin install vagrant-disksize
-
-Installing the 'vagrant-disksize' plugin. This can take a few minutes...
-Fetching vagrant-disksize-0.1.3.gem
-Installed the plugin 'vagrant-disksize (0.1.3)'!
-```
+Nota: en MacOS es posible instalar Vagrant usando `brew`: `brew install vagrant`
 
 ### Crear la máquina virtual
 
