@@ -1,10 +1,18 @@
 # Instalación de Minikube en Ubuntu 20.04
 
+Este laboratorio se puede realizar en:
+* Máquinas físicas con extensiones de virtualización (cualquier
+  equipo de trabajo moderno las tiene)
+* Máquinas virtuales que tengan activada la virtualización anidada
+
+El primer paso que daremos será verificar esta condición.
 ## Requisitos de hardware
 
-Debes tener acceso a una máquina con una instalación de Ubuntu 20.04. El primer
-paso es comprobar que tenemos las extensiones de virtualización
-activas en nuestra máquina:
+Debes tener acceso a una máquina con una instalación de Ubuntu 20.04. En este laboratorio
+no realizaremos la instalación del sistema operativo.
+
+Como he comentado antes, comprobamos antes de continuar que tenemos las extensiones de 
+virtualización activas en nuestra máquina:
 
 ```shell
 > egrep c 'vmx|svm' /proc/cpuinfo
@@ -19,6 +27,12 @@ estás utilizando un proveedor de servicios en la nube, busca como activar
 la virtualización anidada.
 
 ## Instalación de un hipervisor: KVM
+
+Minikube puede funcionar de dos maneras: utilizando un hipervisor o utilizando docker.
+En este laboratorio utilizaremos el primer método. Puedes ver el segundo método en el
+taller 
+[Instalación de minikube en una máquina virtual con Linux](../instalacion-minikube-en-maquina-virtual-linux/README.md), en el que usamos
+docker como driver al no disponer de virtualización en las CPU.
 
 Instalar el paquete `cpu-checker`:
 
