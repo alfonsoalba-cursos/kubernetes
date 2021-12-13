@@ -269,6 +269,29 @@
 								</div>
 						</div>
 					</div> <!-- END Sección SecretsAndConfigMaps -->					
+					
+					<div class="accordion-item"> <!-- Sección ServiceDiscovery -->
+						<h2 class="accordion-header" id="panelsStayOpen-servicediscovery">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseServiceDiscovery" aria-expanded="false" aria-controls="panelsStayOpen-collapseArchitecture">
+								13. <em>Service Discovery</em>: &nbsp;<code>kube-dns</code>
+						</button>
+						</h2>
+						<div id="panelsStayOpen-collapseServiceDiscovery" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-servicediscovery">
+								<div class="accordion-body">
+										<p>
+											Si tenemos multiples <code>Pods</code> que tienen que comunicarse entre sí, y estos <code>Pods</code>
+											son efímeros ¿Cómo conseguimos que se puedan encontrar entre sí? ¿Cómo hacemos que nuestros <code>Pods</code>
+											se conecten a nuestra base de datos sin saber <em>a priori</em> cuál es su IP o su nombre interno? Kubernetes proporciona un servicio
+											DNS que se encarga de ofrecer nombres para poder acceder tanto a los objetos <code>Service</code>
+											como a los <code>Pods</code>.
+										</p>
+										<ul>
+												<li><a href="es/0130_service_discovery/index.html" class="text-decoration-none text-reset">Diapositivas 🔗</a></li>
+												<li>Taller: <em>Service Discovery</em></li>
+										</ul>
+								</div>
+						</div>
+					</div> <!-- END Sección ServiceDiscovery -->					
 				</div>		
 			</main>
 
