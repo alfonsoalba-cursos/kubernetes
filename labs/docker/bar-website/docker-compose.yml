@@ -1,0 +1,9 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kubernetescourse/bar-website
+    ports:
+      - "9091:80"
