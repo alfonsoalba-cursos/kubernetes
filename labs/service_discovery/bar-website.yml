@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bar-website
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bar-website
+  template:
+    metadata:
+      labels:
+        app: bar-website
+    spec:
+      containers:
+      - name: bar-website
+        image: docker.io/kubernetescourse/bar-website
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bar-website
+  labels:
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      # nodePort: 30036
+      name: http
+  selector:
+    app: bar-website
