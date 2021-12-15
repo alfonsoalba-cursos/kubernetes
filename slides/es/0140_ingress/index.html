@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Ingress</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/sky.css">
+		<link rel="stylesheet" href="../../dist/custom.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3><em>Ingress</em></h3>
+					<aside class="notes" data-markdown>
+						Veremos el funcionamiento de <em>Ingress</em> en Kubernetes como alternativa a los servicios de balanceo de carga
+						que nos ofrecen los proveedores de clusters gestionados.
+					</aside>
+				</section>
+			   <section 
+				  data-markdown="summary.md"
+				  data-separator="^------"
+				  data-separator-vertical="^\^\^\^\^\^\^"
+				  data-separator-notes="^Note:"
+				  data-charset="utf8">
+				</section>			
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
