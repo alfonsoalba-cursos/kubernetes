@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Introducciónn</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/sky.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section id="intoduction-toc"
+					data-markdown="toc.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>	
+
+				<section id="introduction-about-me"
+					data-markdown="sobre_mi.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>	
+				<section id="introduction-about-the-course"
+					data-markdown="sobre_el_curso.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>	
+				<section id="introduction-what-is-kubernetes"
+					data-markdown="que_es_kubernetes.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>	
+				<section id="introduction-summary"
+					data-markdown="resumen.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
