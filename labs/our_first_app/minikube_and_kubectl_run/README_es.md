@@ -56,3 +56,7 @@ service "foo-website" deleted
 ```
 
 Acuerdate de ejecutar `minikube stop` para detener minikube.
+
+## Siguiente paso
+
+[Crea un `Pod` multicontenedor ](../multicontainer-pod/README_es.md)

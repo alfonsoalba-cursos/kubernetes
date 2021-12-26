@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multicontainer-pod-with-default-container
+  annotations:
+    kubectl.kubernetes.io/default-container: reverse-proxy
+spec:
+  containers:
+  # see https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/tree/main/hello-app
+  - name: hello-app
+    image:  us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0 
+    ports:
+      - containerPort: 8080 # We need to use this port number, as it's harcoded 
+                            # in the configuration of the nginx reverse proxy 
+  - name: reverse-proxy
+    image: docker.io/kubernetescourse/multicontainer-pod-nginx
+    ports:
+      - containerPort: 80
