@@ -43,7 +43,7 @@ como proxy inverso con la siguiente configuración:
 ```
 
 La configuración completa de este contenedor está en la carpeta 
-[/labs/docker/multicontainer-pod-nginx](../../labs/docker/multicontainer-pod-nginx)
+[/labs/docker/multicontainer-pod-nginx](../../docker/multicontainer-pod-nginx)
 
 ## Levantando el `Pod`
 
