@@ -1,0 +1,9 @@
+version: "3"
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kubernetescourse/multicontainer-pod-nginx
+    ports:
+      - "9090:80"
