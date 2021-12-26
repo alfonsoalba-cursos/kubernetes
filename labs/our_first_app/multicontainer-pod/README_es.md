@@ -121,7 +121,8 @@ anotación (más información en
 [la solicitud de mejora que está en GitHub](https://github.com/kubernetes/kubernetes/pull/97099)).
 Se espera que esta funcionalidad sea estable en kubernetes 1.23.
 
-Creamos un nuevo `Pod` en el que usamos esta funcionalidad:  `multicontainer-pod-with-default-container`.
+Creamos un nuevo `Pod` en el que usamos esta funcionalidad, seleccionando el contenedor
+`reverse-proxy` del `Pod` como contenedor por defecto.
 El fichero de definición de este `Pod` es 
 [multicontainer-pod-with-default-container.yml](./multicontainer-pod-with-default-container.yml).
 
