@@ -18,7 +18,7 @@ Ya existe un contenedor con la página web de la aplicación,
 
 ## Desplegando el `Pod`
 
-Para desplegar el `Pod`, usamos el comando `kubectl run`:
+Para desplegar el `Pod`, usamos el comando [`kubectl run`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#run):
 
 ```shell
 $ kubectl run foo-website \
