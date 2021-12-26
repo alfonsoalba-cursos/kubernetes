@@ -149,3 +149,7 @@ service "foo-website" deleted
 ```
 
 Acuerdate de ejecutar `minikube stop` para detener minikube.
+
+## Siguiente paso
+
+[Nuestra primera aplicación en `minikube` usando `kubectl run`](../minikube_and_kubectl_run/README_es.md)
