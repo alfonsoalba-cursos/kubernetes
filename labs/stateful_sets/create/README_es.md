@@ -336,5 +336,6 @@ web-2: Fichero de web-2
 
 ## Siguiente paso
 
-En el siguiente taller, aumentaremos el número de réplicas de nuestro `StatefulSet`.
+En el [siguiente taller](../scaling/README_es.md), aumentaremos (y reduciremoes) el número de réplicas 
+de nuestro `StatefulSet`.
 
