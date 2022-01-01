@@ -5,7 +5,7 @@ metadata:
   namespace: demo-statefulsets
 spec:
   serviceName: "nginx"
-  replicas: 5
+  replicas: 3
   updateStrategy:
     type: RollingUpdate
   selector:
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: k8s.gcr.io/nginx-slim:0.7
+        image: k8s.gcr.io/nginx-slim:0.8
         ports:
         - containerPort: 80
           name: web

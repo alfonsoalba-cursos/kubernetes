@@ -6,6 +6,8 @@ metadata:
 spec:
   serviceName: "nginx"
   replicas: 2
+  updateStrategy:
+    type: RollingUpdate
   selector:
     matchLabels:
       app: nginx
@@ -16,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: k8s.gcr.io/nginx-slim:0.8
+        image: k8s.gcr.io/nginx-slim:0.7
         ports:
         - containerPort: 80
           name: web
