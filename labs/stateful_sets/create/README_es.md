@@ -266,7 +266,7 @@ Fichero de web-2
 Usaremos de nuevo dos consolas. Por un lado, listamos los `Pods`:
 
 ```shell
-$ kubectl delete pod -n demo-statefulset -l app=nginx
+$ kubectl get pods -n demo-statefulset -w
 NAME    READY   STATUS    RESTARTS   AGE
 web-0   1/1     Running   0          72m
 web-1   1/1     Running   0          33m
@@ -285,7 +285,7 @@ pod "web-2" deleted
 Mirando la primera consola, esperamos a que los `Pods` se hayan creado de nuevo:
 
 ```shell
-$ kubectl get pods -w -l app=nginx -n demo-statefulsets
+$ kubectl get pods -n demo-statefulsets -w
 NAME    READY   STATUS    RESTARTS   AGE
 web-0   1/1     Running   0          72m
 web-1   1/1     Running   0          33m
