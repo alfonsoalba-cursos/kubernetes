@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>StatefulSets</title>
+		<title>DaemonSets</title>
 
 		<link rel="stylesheet" href="../../dist/reset.css">
 		<link rel="stylesheet" href="../../dist/reveal.css">
@@ -26,54 +26,42 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h3 style="text-transform: none;"><em>StatefulSets</em></h3>
+					<h3 style="text-transform: none;"><code>DaemonSets</code></h3>
 					<aside class="notes" data-markdown>
-						Los objetos `StatefulSets` de la API de Kubernetes se utilizan para gestionar
-						aplicaciones con estado.
+						Los objetos <code>DaemonSet</code> nos garantizan que una instancia de un <code>Pod</code>
+						se ejecuta en cada nodo del cluster.
 					</aside>
 				</section>
-				<section id="stateful-sets-toc"
+				<section id="daemon-sets-toc"
 					data-markdown="toc.md"
 					data-separator="^------"
 					data-separator-vertical="^\^\^\^\^\^\^"
 					data-charset="utf8">
 				</section>	
-				<section id="stateful-sets-about"
+				<section id="daemon-sets-about"
 					data-markdown="about.md"
 					data-separator="^------"
 					data-separator-vertical="^\^\^\^\^\^\^"
 					data-charset="utf8">
-				</section>	
-				<section id="stateful-sets-components"
-					data-markdown="components.md"
+				</section>					
+				<section id="daemon-sets-communication"
+					data-markdown="communication.md"
 					data-separator="^------"
 					data-separator-vertical="^\^\^\^\^\^\^"
 					data-charset="utf8">
-				</section>	
-				<section id="stateful-sets-identity"
-					data-markdown="identity.md"
+				</section>					
+				<section id="daemon-sets-updating"
+					data-markdown="updating.md"
 					data-separator="^------"
 					data-separator-vertical="^\^\^\^\^\^\^"
 					data-charset="utf8">
-				</section>	
-				<section id="stateful-sets-guarantees"
-					data-markdown="guarantees.md"
+				</section>		
+				<section id="daemon-sets-alternatives"
+					data-markdown="alternatives.md"
 					data-separator="^------"
 					data-separator-vertical="^\^\^\^\^\^\^"
 					data-charset="utf8">
-				</section>
-				<section id="stateful-sets-updates"
-					data-markdown="updates.md"
-					data-separator="^------"
-					data-separator-vertical="^\^\^\^\^\^\^"
-					data-charset="utf8">
-				</section>
-				<section id="stateful-sets-comming"
-					data-markdown="comming.md"
-					data-separator="^------"
-					data-separator-vertical="^\^\^\^\^\^\^"
-					data-charset="utf8">
-				</section>				
+				</section>									
 				<section id="stateful-sets-summary"
 				  data-markdown="summary.md"
 				  data-separator="^------"
