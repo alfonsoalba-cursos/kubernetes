@@ -39,7 +39,7 @@ a bajo nivel hasta la administración del propio Kubernetes.
 
 * <a href="https://kubespray.io/#/" target="_blank" rel="noopener noreferrer">kubespray</a>
 * <a href="https://rancher.com/docs/rke/latest/en/" target="_blank" rel="noopener noreferrer">rke</a>
-* <a href="https://github.com/kinvolk/bootkube" target="_blank" rel="noopener noreferrer"></a>bootkube
+* <a href="https://github.com/kubernetes-retired/bootkube" target="_blank" rel="noopener noreferrer" style="text-decoration:line-through;">bootkube</a>
 
 notes: 
 Algunas herramientas que pueden ayudarnos para instalar nuestro propio cluster.
@@ -50,7 +50,8 @@ No usaremos ninguna en el curso. Utilizaremos un servicio gestionado.
 * rke: se ejecuta sobre contenedores de docker
 * bootkube: ejecuta el `control-plane` de kubernetes dentro de kubernetes (api-server, 
     controller-manager y scheduler). Ventaja: parte de kubernetes se puede gestionar usando
-    el comando `kubectl`, como si fuesen pods
+    el comando `kubectl`, como si fuesen pods. El repositorio de código ha sido archivado,
+    por lo que se recomienda utilizar otras herramientas
 
 ^^^^^^
 ### k3s
@@ -70,5 +71,5 @@ Una herramienta muy interesante que me gustaría mencionar es k3s.
 
 ¡Es algo que puedes montar en tu casa con tres RaspberryPi!
 
-Ideal para trastear con cómo funciona un cluster de kubernetes, pero ¡cuidad! que mis palabras
+Ideal para trastear con cómo funciona un cluster de kubernetes, pero ¡cuidado! que mis palabras
 no te confundan: es un proyecto pensado para desplegar en producción.
