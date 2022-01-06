@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Monitorización y métricas</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/sky.css">
+		<link rel="stylesheet" href="../../dist/custom.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3 style="text-transform: none;">Monitorización y métricas</h3>
+					<aside class="notes" data-markdown>
+						Kubernetes nos facilita mecanismos para examinar los recursos utlizados por nuestros
+						nodos, `Pods`, `Services` y contenedores. Veremos en esta sección cómo podemos acceder
+						a esta información. 
+					</aside>
+				</section>
+				<section id="monitoring-toc"
+					data-markdown="toc.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				
+				<section id="monitoring-metrics"
+					data-markdown="metrics.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				
+				<section id="monitoring-resource-metrics"
+					data-markdown="resource-metrics.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>		
+				<section id="monitoring-external-metrics"
+					data-markdown="external-metrics.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>			
+				<section id="monitoring-custom-metrics"
+					data-markdown="custom-metrics.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>			
+				<section id="monitoring-summary"
+				  data-markdown="summary.md"
+				  data-separator="^------"
+				  data-separator-vertical="^\^\^\^\^\^\^"
+				  data-charset="utf8">
+				</section>			
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
