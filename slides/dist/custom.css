@@ -1,3 +1,19 @@
+#cc-license {
+    transform:  translate(-48%, 50vh) rotate(-90deg);
+    position: absolute;
+    top: 0px;
+    text-align: center;
+    font-family: inherit;
+    font-size: 0.6em;
+    width: 100%;
+    left: 0px;
+    z-index: 2;
+}
+
+#cc-license img {
+    margin: 0px 0px;
+}
+
 .reveal ul.list-unstyled {
     list-style-type: none;
 }
