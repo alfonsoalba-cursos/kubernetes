@@ -4,3 +4,4 @@
 * [Almacenamiento](#whats-a-pod-storage)
 * [_Networking_](#whats-a-pod-networking)
 * [_Privileged mode_](#whats-a-pod-privileged-mode)
+* [`Pods` estáticos](#whats-a-pod-static-pods)
