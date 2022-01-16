@@ -1,6 +1,6 @@
 ### _Privileged mode_
-* *Linux: activar la opción `privileged`
-* *Windows: Se pueden crear pods de tipo `HostProcess`. Se ejecutan directamente sobre el host.
+* Linux: activar la opción `privileged`
+* Windows: Se pueden crear pods de tipo `HostProcess`. Se ejecutan directamente sobre el host.
 
 notes:
 

@@ -65,3 +65,27 @@ Habitualmente no se trabaja con `Pods`
 Normalmente, trabajamos con otros recursos de kubernetes como `Deployments`, `Jobs` o `StatefulSets`
 
 Estos recursos son los que se encargan de crear los pods por nosotros
+
+
+^^^^^^
+
+### ¿Cómo se usan los `Pods`?
+ 
+1. Especificamos el  `Pod`    
+   ```yaml
+   # Fichero pod-definition.yml
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: nginx
+   spec:
+     containers:
+     - name: nginx
+       image: nginx:1.14.2
+       ports:
+       - containerPort: 80
+   ```
+1. Creamos el `Pod`
+   ```shell
+   $ kubectl create -f pod-definition.yml
+   ```
