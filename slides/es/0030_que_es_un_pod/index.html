@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="../../dist/reset.css">
 		<link rel="stylesheet" href="../../dist/reveal.css">
-		<link rel="stylesheet" href="../../dist/theme/black.css">
+		<link rel="stylesheet" href="../../dist/theme/sky.css">
 		<link rel="stylesheet" href="../../dist/custom.css">
 
 		<!-- Theme used for syntax highlighted code -->
@@ -25,150 +25,50 @@
 		</div>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-					<h1>¿Qué es un pod?</h1>
-					Unidad mínima que se puede desplegar en un cluster
-					<aside class="notes" data-markdown>
-						En un cluster no se puede desplegar nada más pequeño que un pod.
-
-						Imagina una app que solo consta de un contenedor: un sitio web estático
-						que se sirve a través de un nginx. La forma de desplegar ese 
-						contenedor es meterlo dentro de un pod.
-					</aside>
-
+				<section id="whats-a-pod-toc"
+					data-markdown="toc.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>	
+				<section id="whats-a-pod"
+					data-markdown="whats-a-pod.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
 				</section>
-				<section>
-					<img src="../../images/whats_a_pod.png" alt="what's a pod" >
-					<aside class="notes" data-markdown>
-						Un pod consta de:
-						* Recursos de red, como por ejemplo una dirección IP
-						* uno o más contenedores
-						* Volúmenes de almacenacenamiento
-						* Especificación sobre cómo ejecutar esos contenedores
-
-						Todos los recursos de un pod se aprovisionan juntos en un mismo contexto. por
-						ejemplo, los contenedores que están dentro de un pod pueden llegar de uno
-						a otro directamente conectándose directamente al puerto del otro contenedor.
-					</aside>
+				<section id="whats-a-pod-usage"
+					data-markdown="usage.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
 				</section>
-				<section>
-					<section>
-						<h2>¿Cómo se usan los pod?</h2>
-					</section>
-					<section>
-						En términos de docker, un pod es similar a un conjunto de contenedores que
-						comparten un espacio de nombres y uno o varios volúmenes.
-					</section>
-					<section>
-						A nivel de diseño y arquitectura de nuestra aplicación, un pod modela un host
-						lógico: partes de la aplicación que están fuertemente acopladas.
-						<aside class="notes" data-markdown>
-							Un ejemplo de este pod puede ser un servicio que contiene dos contenedores:
-							* Un contenedor que sirve ficheros almacenados en un volumen
-							* Un contenedor asociado que actualiza los ficheros que se están sirviendo
-						</aside>
-					</section>
-					<section>
-						<p>Dos modelos de uso:</p>
-	
-						<ul>
-							<li>Un contenedor por pod</li>
-							<li>Varios contenedores por pod</li>	
-						</ul>
-						
-					</section>
-					<section>
-						<h2>⚠️</h2>
-						<p>Agrupar múltiples contenedores en un mismo pod es un caso de uso avanzado.</p>
-						<p>Usarlo sólo cuando los contenedores están fuertemente acoplados</p>
-						<aside class="notes" data-markdown>
-							Los pods están pensados para que ejecuten instancias únicas de una aplicación. Por ejemplo:
-							* Si estamos trabajando con un monolito: cada pod contendrá una instancia del monolito,
-							que normalmente contendrá un solo contenedor.
-							* Si estamos trabajando en una aplicación con microservicios, cada pod contendrá un
-							microservicio y, normalmente, un microservicio se ejecuta dentro de un contenedor.
-	
-							No confundir microservicios dependientes entre sí con microservicios fuertemente acoplados.
-							En una arquitectura de microservicios, se busca el máximo desacoplamiento, lo que se consigue con
-							una adecuada gestión de dependencias y arquitecturas basadas en eventos / colas de mensajes.
-	
-							Cada microservicio se ejectuará en su propio pod y, quizás alguno de esos pods necesite varios
-							contenedores para poder ejecutarse.
-	
-							Lo que no se debe hacer es poner dentro de un mismo pod varios microservicios por que 
-							resulta que unos dependen de otros.
-
-							En el taller sobre `Pods` multicontenedor, veremos un ejemplo de contenedor de este tipo.
-						</aside>
-					</section>
-					<section>
-						<p>No es habitual trabajar directamente con pods.</p>
-						<p>
-							Normalmente, trabajamos con otros recursos de kubernetes como Deployments, Jobs
-							o StatefulSets
-						</p>
-						<p>Estos recursos son los que se encargan de crear los pods por nosotros.</p>
-					</section>	
+				<section id="whats-a-pod-storage"
+					data-markdown="storage.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
 				</section>
-				<section>
-					<h2>Almacenamiento</h2>
 
-					<p>Cuando especificamos un pod, podemos declara volúmenes a los que el pod
-						tendrá acceso</p>
-					<p>Todos los contenedores en un pod pueden acceder a los volúmenes montados</p>
-					<aside class="notes" data-markdown>
-						Una forma de permitir que múltiples contenedores dentro de un pod
-						compartan información es utilizar un volumen.
-
-						Cuando veamos los `secrets` y los `ConfigMaps` dentro de kubernetes, veremos
-						otro ejemplo de cómo utilizar volúmenes para compartir información entre varios pods
-						y, dentro de ellos, entre los contenedores que conformen cada pod.
-					</aside>
+				<section id="whats-a-pod-networking"
+					data-markdown="networking.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
 				</section>
-				<section>
-					<h2>Networking</h2>
 
-					<ul>
-						<li>Cada pod se le asigna una dirección IP única</li>
-						<li>
-							Cada pod consta de su propio 
-							<em><a href="https://www.man7.org/linux/man-pages/man7/network_namespaces.7.html" target="_blank">network namespace</a></em>
-						</li>
-						<li>Dentro de un pod, los contenedores comparten el espacio de puertos</li>
-						<li>Se pueden comunicar entre sí usando:
-							<ul>
-								<li><span class="font-monospace">localhost</span> y el número de puerto</li>
-								<li>IPC estándar de Unix, semaforos o memoria compartida</li>
-							</ul>
-						</li>							
-					</ul>
-					<aside class="notes" data-markdown>
-						Si necesitamos comunicarnos con un contenedor que está en otro pod, la forma
-						más sencilla de hacerlo es a través de TCP/IP.
-					</aside>
+				<section id="whats-a-pod-privileged-mode"
+					data-markdown="privileged-mode.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
 				</section>
-				<section>
-					<h2><em>Privileged mode</em></h2>
-					<ul>
-						<li>Linux: activar la opción <code>privileged</code></li>
-						<li>
-							Windows: Se pueden crear pods de tipo <code>HostProcess</code>. Se ejecutan directamente sobre el host.
-						</li>
-					</ul>
-					<aside class="notes" data-markdown>
-						Si necesitamos ejecutar pods/contenedores que necesitan acceso al systema operativo, por ejemplo
-						para manipular la red o para acceder a un dispositivo de hardware, deberemos 
-						crear contenedores en modo `privileged`.
 
-						Este tipo de contenedores se pueden usar en Linux y Windows.
-					</aside>
-				</section>
-				<section>
-					<h2>ℹ️ Más información</h2>
-					<ul>
-						<li><a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#PodSpec" target="_blank" rel="noopener noreferrer">[K8s docs] Especificación completa de un pod</a></li>
-						<li><a href="https://kubernetes.io/es/docs/concepts/workloads/pods/" target="_blank" rel="noopener noreferrer">[K8s docs] Pods</a></li>
-					</ul>
+				<section id="whats-a-pod-summary"
+					data-markdown="summary.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
 				</section>
 			</div>
 		</div>
