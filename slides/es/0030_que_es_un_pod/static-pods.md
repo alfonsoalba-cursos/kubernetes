@@ -42,3 +42,9 @@ que se lo descargue cuando se levante (más información [aquí](https://kuberne
 ### `Pods` estáticos
 
 Caso de uso principal: ejecutar componentes del `control plane` del cluster.
+
+^^^^^^
+
+### `Pods` estáticos
+
+Más información: [Create static Pods](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/)

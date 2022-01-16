@@ -5,3 +5,4 @@
 * [_Networking_](#whats-a-pod-networking)
 * [_Privileged mode_](#whats-a-pod-privileged-mode)
 * [`Pods` estáticos](#whats-a-pod-static-pods)
+* [_Ephemeral containers_](#whats-a-pod-ephimeral-containers)
