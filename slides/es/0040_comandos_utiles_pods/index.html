@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="../../dist/reset.css">
 		<link rel="stylesheet" href="../../dist/reveal.css">
-		<link rel="stylesheet" href="../../dist/theme/black.css">
+		<link rel="stylesheet" href="../../dist/theme/sky.css">
 		<link rel="stylesheet" href="../../dist/custom.css">
 
 		<!-- Theme used for syntax highlighted code -->
@@ -26,105 +26,14 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>Pods:<br>comandos útiles</h1>
+					<h3>Pods:<br>comandos útiles</h3>
 				</section>
-        <section>
-          <table>
-            <thead><tr><td></td></tr></thead>
-            <tbody>
-              <tr><td><pre>kubectl get pods</pre></td></tr>
-              <tr><td><pre>kubectl describe pod &lt;name&gt;</pre></td></tr>
-              <tr><td><pre>kubectl expose pod &lt;name&gt; --port=... --name=...</pre></td></tr>
-              <tr><td><pre>kubectl port-forward &lt;name&gt; &lt;localPortNumber&gt;:&lt;podPortNumber&gt;</podPortNumber></pre></td></tr>
-              <tr><td><pre>kubectl exec &lt;name&gt; --command &lt;command&gt;</pre></td></tr>
-              <tr><td><pre>kubectl run ...</pre></td></tr>
-              <tr><td><pre>kubectl label pod &lt;name&gt; key=value</pre></td></tr>
-              <tr><td><pre>kubectl attach &lt;name&gt; -i</pre></td></tr>
-            </tbody>
-          </table>
-        </section>
-				<section>
-					<pre>
-						<code class="language-plaintext" data-trim data-noescape>
-							$ kubectl get pods 
-						</code>
-					</pre>
-					<aside class="notes" data-markdown>
-						Obtiene el listado de pods
-					</aside>
-				</section>
-				<section>
-					<pre><code class="language-plaintext" data-trim data-noescape>
-            <script type="text/template">
-              $ kubectl describe pod <name>
-            </script>
-					</code></pre>
-				</section>
-				<section>
-					<pre><code class="language-plaintext" data-trim data-noescape>
-            <script type="text/template">
-              $ kubectl expose pod <name> --port=... --name=...				
-            </script>
-					</code></pre>
-					<aside class="notes" data-markdown>
-						Crea un servicio para exponer un puerto de un pod.
-					</aside>
-				</section>
-				<section>
-            <pre><code class="language-plaintext" data-trim data-noescape>
-              <script type="text/template">
-							  $ kubectl port-forward <name> <localPortNumber>:<podPortNumber>
-              </script>
-  					</code></pre>
-					<aside class="notes" data-markdown>
-						Expone el puerto `<podPortNumber>` del pod a través del puerto local `<localPortNumber>`
-					</aside>
 
-				</section>
-				<section>
-					<pre><code class="language-plaintext" data-trim data-noescape>
-            <script type="text/template">
-              $ kubectl exec <name> --command <command>
-            </script>  
-					</code></pre>
-					<aside class="notes" data-markdown>
-						Ejecuta el comando `<command>` en el primer contededor del pod `<name>`.
-
-						Si queremos ejecutar el comando en otro contenedor, podemos seleccionarlo con 
-						la opción `-c`.
-					</aside>
-
-				</section>
-				<section>
-					<pre><code class="language-plaintext" data-trim data-noescape>
-            $ kubectl run ...
-					</code></pre>
-					<aside class="notes" data-markdown>
-						Crea un contenedor adicionar dentro del pod utilizando la imagen indicada
-						y ejecuta el comando indicado dentro de este contenedor.
-					</aside>
-					
-				</section>
-				<section>
-					<pre><code class="language-plaintext" data-trim data-noescape>
-            <script type="text/template">
-              $ kubectl label pod <name> key=value
-            </script>
-					</code></pre>
-					<aside class="notes" data-markdown>
-						Añade una etiqueta al pod.
-					</aside>
-				</section>
-				<section>
-					<pre><code class="language-plaintext" data-trim data-noescape>
-            <script type="text/template">
-              $ kubectl attach <name> -i
-            </script>
-					</code></pre>
-					<aside class="notes" data-markdown>
-						
-					</aside>
-
+				<section id="commands"
+					data-markdown="commands.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
 				</section>
 			</div>
 		</div>
