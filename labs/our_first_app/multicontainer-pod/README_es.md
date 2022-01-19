@@ -170,3 +170,7 @@ pod "multicontainer-pod-with-default-container" deleted
 ```
 
 Acuerdate de ejecutar `minikube stop` para detener minikube si no lo necesitas.
+
+## Siguiente paso
+
+[Desplegar un `Pod` en un cluster gestionado](../managed-cluster/README_es.md)

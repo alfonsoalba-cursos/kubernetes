@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: foo-website
+  labels:
+    name: foo-website
+spec:
+  containers:
+    - name: foo-website-container
+      image: kubernetescourse/foo-website
+      ports:
+      - containerPort: 80
