@@ -1,3 +1,7 @@
+:root{
+    --r-main-font-size: 30px;
+}
+
 #cc-license {
     transform:  translate(-48%, 50vh) rotate(-90deg);
     position: absolute;
