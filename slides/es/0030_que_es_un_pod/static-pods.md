@@ -2,7 +2,7 @@
 
 Son `Pods` gestionados directamente por `kubelet` en un nodo del cluster
 
-Si el `Pod` estático falla, el `kubelet` directamente el encargado de restaurarlo
+Si el `Pod` estático falla, es `kubelet` directamente el encargado de restaurarlo
 
 No pueden ser controlados desde la API de kubernetes
 
