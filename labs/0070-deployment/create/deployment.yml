@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: demo-deployment
+  name: foo-website
+  labels:
+    app: foo-website
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: foo-website-pod
+  template:
+    metadata:
+      labels:
+        app: foo-website-pod
+    spec:
+      containers:
+      - name: foo-website
+        image: kubernetescourse/foo-website
+        ports:
+        - containerPort: 80
