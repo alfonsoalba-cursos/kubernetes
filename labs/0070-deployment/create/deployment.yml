@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: foo-website
-        image: kubernetescourse/foo-website
+        image: kubernetescourse/foo-website:1.0
         ports:
         - containerPort: 80
