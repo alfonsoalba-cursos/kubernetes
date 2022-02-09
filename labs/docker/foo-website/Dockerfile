@@ -1,3 +1,3 @@
 FROM nginx:latest
-
-COPY site /usr/share/nginx/html
+ARG SITE_VERSION
+COPY site-v${SITE_VERSION:-2} /usr/share/nginx/html

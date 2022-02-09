@@ -1,9 +1,0 @@
-version: "3"
-services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: kubernetescourse/foo-website
-    ports:
-      - "9090:80"
