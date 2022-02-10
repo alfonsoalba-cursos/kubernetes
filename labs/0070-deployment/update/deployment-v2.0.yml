@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: foo-website
-        image: kubernetescourse/foo-website:1.0
+        image: kubernetescourse/foo-website:2.0
         imagePullPolicy: Always # Let's use this policy se we have some time to run kubectl commands
         ports:
         - containerPort: 80

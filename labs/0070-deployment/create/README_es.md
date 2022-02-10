@@ -130,7 +130,7 @@ Si abrimos esta URL con el navegador veremos la página web.
 
 ## Siguiente paso
 
-En el siguiente taller, veremos cómo podemos actualizar la versión de la imagen desplegada
+En el [siguiente taller](../update/README_es.md), veremos cómo podemos actualizar la versión de la imagen desplegada
 por nuestro `Deployment`.
 ## Limpieza
 
