@@ -174,7 +174,7 @@ Events:
 
 ## Actualización a la versión 3.0
 
-Hacemos una última actulización a la versión 3.0. Para ello, utilizamos fichero [deployment-v3.0.yml](./deployment-v3.0.yml):
+Hacemos una última actulización a la versión 3.0. Para ello, utilizamos fichero [`deployment-v3.0.yml`](./deployment-v3.0.yml):
 
 ```shell
 $ kubectl apply -f deployment-v3.0.yml
@@ -264,6 +264,16 @@ REVISION  CHANGE-CAUSE
 
 que en este caso nos muestra información en la columna `CHANGE-CAUSE` gracias a la anotación que hemos hecho en el
 fichero [`deployment-v3.0.yml`](./deployment-v3.0.yml)
+
+Esta actualización genera un nuevo objeto `ReplicaSet`:
+
+```shell
+$ kubectl get rs -n demo-deployment
+NAME                     DESIRED   CURRENT   READY   AGE
+foo-website-5f76c5545b   0         0         0       13h
+foo-website-67f488cc85   0         0         0       13h
+foo-website-6c9689f58d   3         3         3       12m
+```
 
 ## Siguiente paso
 
