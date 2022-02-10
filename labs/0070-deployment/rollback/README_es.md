@@ -184,6 +184,7 @@ Al igual que en ocasiones anteriores, podemos ver el progreso utilizando el scri
 
 <details>
 <summary>Salida del script <code>show_info.sh</code></summary>
+
 ```shell
 $ kubectl get rs
 NAME                     DESIRED   CURRENT   READY   AGE
@@ -246,6 +247,7 @@ Events:
   Normal  ScalingReplicaSet  28m   deployment-controller  Scaled down replica set foo-website-5f76c5545b to 0
   Normal  ScalingReplicaSet  1s    deployment-controller  Scaled up replica set foo-website-6c9689f58d to 1
 ```
+
 </details>
 
 
