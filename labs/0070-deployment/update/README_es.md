@@ -125,7 +125,7 @@ Events:
 
 ## Siguiente paso
 
-En el siguiente taller, veremos cómo podemos deshacer una actualización de un `Deployment`.
+En el [siguiente taller](../rollback/README_es.md), veremos cómo podemos deshacer una actualización de un `Deployment`.
 
 ## Limpieza
 

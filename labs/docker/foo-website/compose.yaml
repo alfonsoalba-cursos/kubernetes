@@ -18,3 +18,9 @@ services:
   web-v2:
     <<: *web
     image: kubernetescourse/foo-website:2.0
+  web-v3:
+    <<: *web
+    image: kubernetescourse/foo-website:3.0
+    build:
+      args:
+        SITE_VERSION: 3
