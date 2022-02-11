@@ -277,7 +277,7 @@ foo-website-6c9689f58d   3         3         3       12m
 
 ## Siguiente paso
 
-En el siguiente taller, veremos los estados de un `Deployment` y revertiremos una actualización fallida.
+En el [siguiente taller](../deployment-status/README_es.md), veremos los estados de un `Deployment` y revertiremos una actualización fallida.
 
 ## Limpieza
 
