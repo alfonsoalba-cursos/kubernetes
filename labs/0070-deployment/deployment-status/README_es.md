@@ -223,6 +223,10 @@ El estado del `Pod` se muestra de la siguiente manera:
 }
 ```
 
+## Siguiente paso
+
+En el [siguiente taller](../manual-scaling/README_es.md), aumentaremos y reduciremos el número de réplicas de forma manual.
+
 ## Limpieza
 
 ---
