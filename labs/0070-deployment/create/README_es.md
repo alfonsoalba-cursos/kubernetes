@@ -37,7 +37,7 @@ Creamos el [`Deployment`](./deployment.yml):
 
 ```shell
 $ kubectl apply -f deployment.yml
-replicaset.apps/frontend created
+deployment/foo-website created
 ```
 
 Listamos los objetos `Deployment` dentro del espacio de nombres:
