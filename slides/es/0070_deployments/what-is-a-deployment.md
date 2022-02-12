@@ -69,6 +69,8 @@ del objeto `ReplicaSet`.
 
 No se recomienda hacerlo
 
+**No se puede hacer desde la versión 1 de la API**
+
 notes:
 
 Como se indica en la [documentación de Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#label-selector-updates)
