@@ -16,7 +16,7 @@ Depende de cada proveedor
 
 Es el proveedor el que decide qué balanceador de carga utiliza y su configuración
 
-Note:
+notes:
 
 Los proveedores de servicios en la nube suelen facturar el coste del balanceador
 como un servicio a parte del cluster de Kubernetes.

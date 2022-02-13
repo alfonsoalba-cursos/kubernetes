@@ -20,7 +20,7 @@
 
 <img class="r-stretch" alt="nodePort" src="../../images/nodeport_service_with_target_targetport_and_nodeport.png" />
 
-Note:
+notes:
 
 Al igual que antes, esta imagen ilustra como funcionaría un servicio de tipo
 `NodePort`. El tráfico llega al nodo a través del puerto `NodePort` y el servicio
@@ -40,7 +40,7 @@ el tráfico, el servicio lo enruta a través de la red interna al nodo adecuado*
   deberemos asegurarnos de que no haya colisiones con otros servicios que
   puedan estar en el mismo puerto
 
-Note:
+notes:
 
 El valor del rango por defecto es un parámetro de configuración del cluster. Si 
 tenemos control sobre el cluster podríamos modificarlo.

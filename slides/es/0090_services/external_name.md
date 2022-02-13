@@ -14,7 +14,7 @@ spec:
   externalName: my.database.example.com
 ```
 
-Note:
+notes:
 
 Que funciona a nivel de DNS significa que cuando desde dentro de Kubernetes
 se hace una petición para resolver el nombre del servicio, el servicio
@@ -40,7 +40,7 @@ Casos de uso:
 * Acceder a servicios externos
 * Acceder a servicios que están en otro espacio de nombres
 
-Note:
+notes:
 
 Si nuestras bases de datos no se encuentran dentro del cluster de Kubernetes,
 esta es una forma de configurar el acceso a ellas desde dentro de nuestros Pods. 

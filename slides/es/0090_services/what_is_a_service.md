@@ -22,7 +22,7 @@ directamente a un Pod
 
 <img src="../../images/pods_are_mortal.png" alt="Pods are mortal" class="r-stretch">
 
-Note:
+notes:
 
 No es buena idea conectarse directamente a un Pod. Los pods están controlados
 por capa de control de Kubernetes. `Deployments`, `Replication Controllers`,
@@ -36,7 +36,7 @@ otro... y si estás conectado a ese pod, pierdes la conexión con tu aplicación
 <img src="../../images/pods_are_mortal_with_services.png" alt="Services are mortal" class="r-stretch">
 
 
-Note:
+notes:
 
 Si nos conectamos a través del servicio, este sabe qué Pods se han encolado para
 ser borrados y es capaz de detener el tráfico hacia ellos y enrutarlo bien hacia

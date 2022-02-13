@@ -4,8 +4,9 @@
 * _NodePort_
 * _LoadBalancer_
 * _ExternalName_
+* _Headless Service_
 
-Note:
+notes:
 
 En esta sección veremos los cuatro tipos de servicios que se pueden definir dentro
 de Kubernetes.
@@ -16,7 +17,7 @@ de Kubernetes.
 
 <img class="r-stretch" alt="clusterIP Service" src="../../images/clusterIP_service.png" />
 
-Note:
+notes:
 
 ¡Una imagen vale más que mil palabras!
 
@@ -40,7 +41,7 @@ más peticiones.
 
 <img class="r-stretch" alt="clusterIP Service Multiple Nodes" src="../../images/clusterIP_service_multiple_nodes.png" />
 
-Note:
+notes:
 
 Los servicios con capaces de enrutar el tráfico entre diferentes nodos. Todo
 esto se hace internamente a través de `iptables`.
@@ -74,7 +75,7 @@ spec:
     app: rails-backend
 ```
 
-Note:
+notes:
 
 Esta es la deficinición mínima de un servicio de tipo `ClusterIP`
 
@@ -93,7 +94,7 @@ Esta es la deficinición mínima de un servicio de tipo `ClusterIP`
 
 <img class="r-stretch" alt="clusterIP Service Multiple Nodes" src="../../images/clusterIP_service_with_port_and_target_port.png" />
 
-Note:
+notes:
 
 En esta ilustración se muestra a qué se refiere el parámetro `port` y el 
 parámetro `targetPort`
