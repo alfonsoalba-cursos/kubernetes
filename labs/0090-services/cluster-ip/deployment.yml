@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-clusterip
+  namespace: demo-clusterip
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: demo-clusterip
+  template:
+    metadata:
+      labels:
+        app: demo-clusterip
+    spec:
+      containers:
+      - image: gcr.io/google-samples/node-hello:1.0
+        name: hello-world
+        ports:
+        - containerPort: 8080
