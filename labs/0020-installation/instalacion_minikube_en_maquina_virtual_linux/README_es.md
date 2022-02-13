@@ -30,7 +30,7 @@ Clona este repositorio:
 Accede a la carpeta labs\install\instalacion_minikube_en_maquina_virtual_linux:
 
 ```
-> cd labs/install/instalacion_minikube_en_maquina_virtual_linux
+> cd labs/0020-installation/instalacion_minikube_en_maquina_virtual_linux
 ```
 
 Crea la máquina virtual:
