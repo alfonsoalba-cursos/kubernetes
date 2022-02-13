@@ -235,3 +235,7 @@ namespace "demo-nodeselector" deleted
 
 Quitamos la etiqueta de ambos nodos:
 
+```shell
+$ kubectl label nodes standardnodes-kmcoj6rtxw projectType-
+$ kubectl label nodes standardnodes-dujzurkh2h projectType-
+```
