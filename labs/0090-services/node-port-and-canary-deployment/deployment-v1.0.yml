@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: demo-nodeport
+  name: foo-website
+  labels:
+    app: foo-website
+  annotations:
+    kubernetes.io/change-cause: "Deploy version 1.0"
+
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: foo-website-pod
+      env: production
+  template:
+    metadata:
+      labels:
+        app: foo-website-pod
+        env: production
+    spec:
+      containers:
+      - name: foo-website
+        image: kubernetescourse/foo-website:1.0
+        imagePullPolicy: Always # Let's use this policy se we have some time to run kubectl commands
+        ports:
+        - containerPort: 80
