@@ -15,7 +15,7 @@ Como he comentado antes, comprobamos antes de continuar que tenemos las extensio
 virtualización activas en nuestra máquina:
 
 ```shell
-> egrep c 'vmx|svm' /proc/cpuinfo
+> egrep -c 'vmx|svm' /proc/cpuinfo
 6
 ```
 
