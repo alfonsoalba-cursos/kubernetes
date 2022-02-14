@@ -133,7 +133,7 @@ estará siempre en el enlace anterior a la página oficial de la herramienta.
 
 Se puede instalar de diferentes maneras. Utilizaremos la instalación a partir
 de paquete `.deb` aunque según pone en la 
-[propia documentación](https://v1-18.docs.kubernetes.io/docs/tasks/tools/install-minikube/#install-minikube-using-a-package)
+[propia documentación](https://minikube.sigs.k8s.io/docs/start/)
 todavía está en modo experimental.
 
 Ir a la [página en GitHub](https://github.com/kubernetes/minikube/releases) 
