@@ -106,7 +106,7 @@ Dec 12 08:49:26 ubuntu dnsmasq-dhcp[3504]: read /var/lib/libvirt/dnsmasq/default
 
 ## Instalación de `kubectl`
 
-Seguiremos las [instrucciones de instalación](https://v1-18.docs.kubernetes.io/docs/tasks/tools/install-kubectl/#install-using-native-package-management) para instalar
+Seguiremos las [instrucciones de instalación](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management) para instalar
 `kubectl` como paquete `.deb`.
 
 Ejecutar la siguiente secuencia de comandos:
