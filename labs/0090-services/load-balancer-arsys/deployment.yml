@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bar-website
+  namespace: demo-loadbalancer
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: bar-website-pod
+  template:
+    metadata:
+      labels:
+        app: bar-website-pod
+    spec:
+      containers:
+      - image: kubernetescourse/bar-website
+        name: bar-website
+        ports:
+        - containerPort: 80
