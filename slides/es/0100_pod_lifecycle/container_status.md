@@ -7,7 +7,7 @@ El objeto `ContainerStatus` es un array de objetos, uno por contenedor.
 Nos da diferente información sobre los 
 contenedores, como su nombre, su ID, la imagen que está ejecutando...
 
-Note:
+notes:
 
 En la definición de [`PodState`](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#PodStatus)
 vemos que `containerStatuses` es un array de objetos `ContainerStatus`.
@@ -21,7 +21,7 @@ El campo que nos interesa en esta sección es `containerStatuses.state`
 <img class="r-stretch" src="../../images/container_status.png" alt="Pod scheduling">
 
 
-Note:
+notes:
 
 Dentro de la definición del objeto, `containerStatuses.state` es un objeto de tipo
 `ContainerStateRunning` o `ContainerStateTerminated` o `ContainerStateWaiting`.
@@ -47,7 +47,8 @@ acerca de la última vez que el contenedore terminó
 | `Terminated` | El proceso principal del contenedor ha dejado de ejecutarse |
 | `Unknown` | El estado del contenedor no se puede determinar |
 
-Note:
+
+notes:
 
 Cuando el contenedor está en espera (`Waiting`), los campos `containerStatuses.state.waiting.message`
 y `containerStatuses.state.waiting.reason` nos dan información del motivo por el que
@@ -58,13 +59,14 @@ Cuando el contenedor ha terminado (`Terminated`) los campos
 `containerStatuses.state.terminated.reason` nos pueden ayudar a depurar el motivo por el que 
 un contenedor ha terminado.
 
+^^^^^^
 ### Estado de los contenedores
 
 ¿Cuando un contenedor está listo (_ready_)?
 
 Cuando su comprobación de estado `readinessProbe` tiene éxito
 
-Note:
+notes:
 
 Dentro de la definición del estado de un contenedor 
 (ver la definición [aquí](), 

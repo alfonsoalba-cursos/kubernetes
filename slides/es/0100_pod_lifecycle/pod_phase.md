@@ -13,7 +13,7 @@ solicitando el objeto al _API server_:
 * El estado de sus contenedores
 
 
-Note:
+notes:
 
 En [este enlace](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#PodStatus)
 podemos ver la definición completa de qué información de estado nos facilita 
@@ -25,7 +25,7 @@ Kubernetes sobre un `Pod`
 
 <img class="r-stretch" src="../../images/pod_phases.png" alt="Pod scheduling">
 
-Note:
+notes:
 
 Estas son las cinco fases en las que puede encontrase un Pod: `Pending`, `Running`,
 `Succeeded`, `Failed` y `Unknown`.
@@ -52,10 +52,10 @@ Todos los contenedores del `Pod` terminan su ejecución de forma correcta.
 
 Una vez finalizados, los contenedores no se reiniciarán.
 
-Note:
+notes:
 
 Esta fase solo llega a alcanzarse en aquellos `Pods` en los que los contenedores
-no se ejecuten perpetuamente. Si configuramos un `Pod` con al menos un contenedore 
+no se ejecuten perpetuamente. Si configuramos un `Pod` con al menos un contenedor
 configurado para que se reinicie siempre, esta fase nunca se alcanzará.
 
 ^^^^^^
@@ -64,7 +64,7 @@ configurado para que se reinicie siempre, esta fase nunca se alcanzará.
 
 Todos los contenedores se han finalizado y al menos uno ha terminado con un error.
 
-Note:
+notes:
 
 Terminar con un error es lo mismo que terminar el proceso y devolver un valor distinto de cero.
 
@@ -77,7 +77,7 @@ todos los `Pods` de ese cluster como `Failed`
 
 No se pudo obtener el estado del `Pod`
 
-Note:
+notes:
 
 El motivo típico por el que un `Pod` acaba en esta fase es por un error de comunicación
 con el nodo del cluster en el que el `Pod` se debería estar ejecutando. 

@@ -4,7 +4,7 @@ Nos indican el estado en el que está un `Pod`
 
 Un `Pod` tiene varios estados a la vez
 
-Note:
+notes:
 
 En la definición de [`PodState`](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#PodStatus)
 vemos que `conditions` es un array de objetos `PodCondition`.
@@ -15,7 +15,7 @@ vemos que `conditions` es un array de objetos `PodCondition`.
 
 | `condition.type` | `condition.status` |
 | ---- | ----------- |
-| `PodScheduled`| `True` cuando el `Pod`ha quedado programado para ser asignado a un nodo |
+| `PodScheduled`| `True` cuando el `Pod` ha quedado programado para ser asignado a un nodo |
 | `Initialized` | `True` cuando los contenedores de incialización han completado su ejecución correctamente |
 
 ^^^^^^
@@ -25,11 +25,11 @@ vemos que `conditions` es un array de objetos `PodCondition`.
 | `ContainersReady` | `True` cuando todos los contendores del `Pod` se han inicializado correctamente y están listos (_ready_) |
 | `Ready`| El `Pod` está listo para recibir peticiones |   
 
-Note:
+notes:
 
 Que el estado `ContainersReady` está a `True` es condición necesaria pero no suficiente
 para que el estado del `Pod` sea `Ready`. Necesitamos que, además, las `readinessGates`
-también esté listas. 
+también estén listas. 
 
 Las `readinessGates` son condiciones personalizadas que podemos añadir a nuestro `Pod`.
 Una vez definidas, algún agente externo a nuestro `Pod` (por ejemplo un controlador
@@ -57,7 +57,7 @@ Fuentes:
 
 ### Tipos de estados
 
-`PodScheduled` y `Initialized` comienzan con siendo `False`
+`PodScheduled` y `Initialized` comienzan siendo `False`
 
 Una vez pasan a `True`, permanecen en ese estado durante la vida del `Pod`
 
@@ -68,7 +68,7 @@ Una vez pasan a `True`, permanecen en ese estado durante la vida del `Pod`
 Por el contrario, `Ready` y `ContainersReady` pueden cambiar durante la vida del 
 `Pod`
 
-Note:
+notes:
 
 Si una de las comprobaciones de estado indica que uno de los contenedores 
 del `Pod` no responde y `kubelet` decide reiniciarlo, `ContainerReady` y `Ready`

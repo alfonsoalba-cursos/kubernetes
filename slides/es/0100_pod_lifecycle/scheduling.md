@@ -4,7 +4,7 @@
 
 [Fuente: Artículo de Joe Beda](https://blog.heptio.com/core-kubernetes-jazz-improv-over-orchestration-a7903ea92ca)
 
-Note:
+notes:
 
 Este diagrama de Joe Beda describe de forma muy concisa y clara lo que ocurre en Kubernetes
 desde que solicitamos que se cree un `Pod` hasta que este se crea.
@@ -22,6 +22,6 @@ El flujo básico sería el siguiente:
 * La componente `kubelet` del nodo en cuestión, detecta que hay un cambio en los `Pods` 
   asignados a ese nodo. Se conecta al _container runtime_ y levanta el o los contenedores.
   Una vez hecho, actualiza el estado en el `API server`
-* `kubelet` monitoriza el estado del `Pod` a traves del _container runtime_. A medidas 
+* `kubelet` monitoriza el estado del `Pod` a traves del _container runtime_. A medida
   que el estado de los contenedores y de los `Pods` cambian, `kubelet` actualiza 
   la información en el `API server`

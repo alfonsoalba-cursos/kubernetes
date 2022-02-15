@@ -2,7 +2,7 @@
 
 <img class="r-stretch" src="../../images/pod_lifecycle_stages.png" alt="Pod lifecycle_stages">
 
-Note:
+notes:
 
 1 - Fase de incialización: durante esta fase se ejecutan los contenedores de inicialización. Se ejecutan en el orden en el que se han definido en el campo 
 [`initContainers`](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#containers). Este campo consiste en un array de 
@@ -34,7 +34,7 @@ _Conditions_ al inicio:
 | `ContainersReady` | `False` |
 | `Ready`           | `False` |  
 
-Note:
+notes:
 
 Durante la fase inicialización, estos son los estados (_conditions_) que tendrá nuestro
 pod.
@@ -43,13 +43,13 @@ pod.
 
 <img class="r-stretch" src="../../images/pod_lifecycle_init_containers.png" alt="Pod lifecycle init containers">
 
-Note:
+notes:
 
 El flujo sería es siguiente:
 
 * Nos descargamos la imagen del primer contenedor de inicialización
-* Si el contenedore se ejecuta correctamente se para al siguiente contenedor y se repite el proceso
-* Si el contenedor falla, se mira cuál es la política de reinici del `Pod`
+* Si el contenedor se ejecuta correctamente se para al siguiente contenedor y se repite el proceso
+* Si el contenedor falla, se mira cuál es la política de reinicio del `Pod`
   * Si la política es `Always` o `OnFailure`, se vuelve a lanzar el contenedor
   * Si la política es `Never`, se detiene la inicialización (los sigientes contenedores
     no se ejecutarán) y el `Pod` mostrará el estado `Init: Error`
@@ -84,7 +84,7 @@ _Conditions_ al inicio:
 
 <img class="r-stretch" src="../../images/pod_lifecycle_running_stage.png" alt="Pod lifecycle running stage">
 
-Note:
+notes:
 
 Una vez todos los contenedores de inicialización se han ejecutado correctamente,
 se ejecutan los contenedores del `Pod`.
@@ -134,7 +134,7 @@ _Conditions_ al inicio:
 | `Ready`           | `True`  |  
 
 
-Note:
+notes:
 
 El `Pod` podemos eliminarlo nosotros o puede eliminarlo Kubernetes por varios
 motivos:
@@ -150,7 +150,7 @@ motivos:
 
 <img class="r-stretch" src="../../images/pod_lifecycle_termination_stage.png" alt="Pod lifecycle running stage">
 
-Note:
+notes:
 
 Cuando llega el momento de destruir el `Pod`, `kubelet` comienza a detener
 los contenedores. El primer paso es ejecutar el `preStopHook` de todos ellos 
@@ -180,7 +180,7 @@ principal no es capaz de finalizar correctamente antes de que pasen
 ✅ Asegurate de que tus contenedores procesan y responden adecuadamente a la
 señal `TERM`
 
-Note:
+notes:
 
 Es importante que esto sea así para que el proceso se finalización de nuestros
 `Pods` se limpio
