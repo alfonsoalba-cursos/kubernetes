@@ -37,7 +37,7 @@ como proxy inverso con la siguiente configuración:
         proxy_buffering off;
         proxy_request_buffering off;
         proxy_intercept_errors on;
-        proxy_pass http://hello-app:8080;
+        proxy_pass http://localhost:8080;
     }
 ...
 ```
