@@ -55,7 +55,12 @@ Instalamos KVM:
 apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 ```
 
-Añadir al usuario a los grupos `libvirt` y `kvm`:
+**Minikube no se puede ejecutar como usuario `root` cuando estamos utilizando KVM**. Por este
+motivo, necesitamos tener un usuario regular del sistema para poder ejecutar la aplicación.
+Denominaremos a este usuario `user`. Si tu instalación de Ubuntu no crea un usuario
+regular, debes crear este usuario antes de continuar. 
+
+Añadir al usuario `user` a los grupos `libvirt` y `kvm`:
 
 ```shell
 user@ubuntu:~$ sudo adduser user libvirt
