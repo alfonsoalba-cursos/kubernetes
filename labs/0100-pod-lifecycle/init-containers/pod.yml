@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-containers-pod
+  namespace: demo-initcontainers
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: the-application
+    image: busybox:1.28
+    command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+  initContainers:
+  - name: init-myservice
+    image: busybox:1.28
+    command: ['sh', '-c', "echo 'We wait until the service is running...'; sleep 20"]
+  - name: init-database
+    image: busybox:1.28
+    command: ['sh', '-c', "echo 'we wait until the database is running...'; sleep 20"]
