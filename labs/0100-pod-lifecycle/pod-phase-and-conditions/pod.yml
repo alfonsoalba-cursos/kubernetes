@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  namespace: demo-podphase
+  labels:
+    app: myapp
+spec:
+  restartPolicy: OnFailure
+  containers:
+  - name: the-application
+    image: busybox:1.28
+    command: ['sh', '-c', 'echo The app is running! && sleep 30 && exit 0']
+  initContainers:
+  - name: init-myservice
+    image: busybox:1.28
+    command: ['sh', '-c', "echo 'We wait until the service is running...' && sleep 20"]
