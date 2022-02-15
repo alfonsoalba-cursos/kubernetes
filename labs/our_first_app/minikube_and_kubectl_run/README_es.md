@@ -13,7 +13,7 @@ un fichero de definición `yaml`.
 Nuestro objetivo es desplegar un `Pod` en minikube con la página web de nuestro
 cliente `Foo Corporation Website`.
 
-Ya existe un contenedor con la página web de la aplicación, 
+Ya existe una imagen con la página web de la aplicación, 
 [disponible en Docker Hub](https://hub.docker.com/repository/docker/kubernetescourse/foo-website).
 
 ## Desplegando el `Pod`
