@@ -23,7 +23,7 @@ Editamos el fichero de configuración de nuestra shell (`~/.bashrc`, `~/.bash_pr
 o `~/.zshrc`) y añadimos estas líneas
 
 ```shell
-export KUBECONFIG="~/.kube/config:~/.kube/config_arsys.yml"
+export KUBECONFIG="$HOME/.kube/config:$HOME/.kube/config_arsys.yml"
 ```
 
 Para hacer activa la configuración puedes utilizar el comando `source`, cerrar la 
@@ -32,7 +32,7 @@ Podemos confirmar que la variable está correctamente aplicada ejecutando
 
 ```shell
 > echo $KUBECONFIG
-~/.kube/config:~/.kube/config_arsys.yml
+/home/user/.kube/config:/home/user/.kube/config_arsys.yml
 ```
 
 ### Windows
