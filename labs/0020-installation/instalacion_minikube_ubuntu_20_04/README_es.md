@@ -31,7 +31,7 @@ la virtualización anidada.
 Minikube puede funcionar de dos maneras: utilizando un hipervisor o utilizando docker.
 En este laboratorio utilizaremos el primer método. Puedes ver el segundo método en el
 taller 
-[Instalación de minikube en una máquina virtual con Linux](../instalacion-minikube-en-maquina-virtual-linux/README.md), en el que usamos
+[Instalación de minikube en una máquina virtual con Linux](../instalacion_minikube_en_maquina_virtual_linux/README_es.md), en el que usamos
 docker como driver al no disponer de virtualización en las CPU.
 
 Instalar el paquete `cpu-checker`:
