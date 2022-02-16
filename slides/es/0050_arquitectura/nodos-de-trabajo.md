@@ -27,7 +27,7 @@ desde un fichero o realizando peticiones HTTP (_Static Pods_)
 ### `kubeproxy`
 
 * Se encarga de configurar la red del nodo para que cumpla con la especificación de los objetos `Service` para ese nodo
-* *Gestiona las subredes, expone los puertos y reenvía las peticiones a los nodos adecuados del cluster
+* Gestiona las subredes, expone los puertos y reenvía las peticiones a los nodos adecuados del cluster
 * Se comunica principalmente con `iptables`
 * [ℹ️ Más información](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)
 
@@ -42,8 +42,8 @@ notes:
 En este ejemplo se pueden ver dos ejemplos de cómo funciona kube-proxy. 
 
 * En la petición 1, el tercer nodo recibe una petición a través del balanceador de carga
-que va dirigida a uno de los pods del cluster. Utilizando la red interna de ese pod, 
-reenvía la petición por esa subred.
+que va dirigida a uno de los pods del cluster. La petición llega al `Pod` a través de la 
+subred de ese nodo.
 
 * En la petición 2, el primer nodo recibe una petición directa que debe servirse por un
 pod que está situado en el nodo 2. `kube-proxy` reenvía la petición al nodo correcto, que
