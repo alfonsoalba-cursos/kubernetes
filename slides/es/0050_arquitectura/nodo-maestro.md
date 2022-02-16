@@ -13,7 +13,7 @@
 ^^^^^^
 
 ### `kube-apiserver`
-* *Entidad principal de la gestión del cluster
+* Entidad principal de la gestión del cluster
 * Es el _frontend_ del cluster
 * Se comunica con `etcd` y se asegura de la consistencia de los datos
 * [ℹ️ Más información](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) 

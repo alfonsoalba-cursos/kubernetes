@@ -9,7 +9,7 @@
 * Servicio principal que se ejecuta en los nodos
 * Responsable de que los pods y sus contenedores estén en el estado deseado
 * Informa al nodo maestro del estado del nodo en el que se ejecuta
-* [ℹ️ Más información(]https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
+* [ℹ️ Más información](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
 
 ^^^^^^
 
