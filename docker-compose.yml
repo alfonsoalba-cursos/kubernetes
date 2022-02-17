@@ -8,4 +8,4 @@ services:
     volumes: 
       - ./slides:/usr/share/nginx/html
     ports:
-      - 8080:80
+      - 58080:80
