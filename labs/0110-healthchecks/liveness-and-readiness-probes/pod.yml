@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bar-website
+  namespace: demo-healthchecks
+spec:
+  containers:
+    - name: nginx
+      image: kubernetescourse/bar-website-for-healthchecks
+      ports:
+        - containerPort: 80
+      readinessProbe:
+        exec:
+#          command: ["bash", "-c", "'[ ! -f /usr/share/nginx/html/maintenance ]'"]
+          command: ["/ready.sh"]
+        initialDelaySeconds: 30
+        periodSeconds: 15
+      livenessProbe:
+        exec:
+          command: ["/live.sh"]
+        initialDelaySeconds: 30
+        periodSeconds: 15
+    

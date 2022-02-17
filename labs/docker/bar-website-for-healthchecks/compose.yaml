@@ -1,0 +1,8 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kubernetescourse/bar-website-for-healthchecks
+    ports:
+      - "9092:80"

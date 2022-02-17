@@ -1,0 +1,16 @@
+[
+    { 
+        "name": "BarPhone XM-900",
+        "SKU": "XM-900",
+        "description": "...",
+        "price": "199.99",
+        "currency": "€"
+    },
+    { 
+        "name": "BarPhone XMH-950-4K",
+        "SKU": "XMH-950-4K",
+        "description": "...",
+        "price": "199.99",
+        "currency": "€"
+    }
+]
