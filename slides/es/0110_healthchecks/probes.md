@@ -34,11 +34,19 @@ para determinar si está **disponible para recibir tráfico**.
 * Comando
 * Petición HTTP
 * Comprobación de socket TCP
+* gRPC (en alfa)
 
 
 Note:
 
-Estos son los tres tipos de sondas que nos permite definir Kubernetes a día de hoy.
+Estos son los cuatro tipos de sondas que nos permite definir Kubernetes a día de hoy.
+
+gRPC Está en alfa. Más información sobre gRPC:
+* [https://grpc.io/](https://grpc.io/)
+* El contenedor debe implementar comprobaciones de estado de gRPC ([ver un ejemplo
+  aquí](https://grpc.github.io/grpc/core/md_doc_health-checking.html))
+
+gRPC es un proyecto auspiciado por la Cloud Native Foundation.
 
 ^^^^^^
 
