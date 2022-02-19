@@ -19,5 +19,3 @@
   * [`PersistentVolume`](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/)
   * [`PersistentVolumeClaim`](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/)
   * [`StorageClass`](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/storage-class-v1/)
-		○ PersistentVolume | Kubernetes
-		○ StorageClass | Kubernetes
