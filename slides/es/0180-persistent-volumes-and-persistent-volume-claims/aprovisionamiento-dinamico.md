@@ -150,7 +150,7 @@ spec:
 
 ### Aprovisionamiento dinámico: Ciclo de vida
 
-<img alt="lifecycle-of-dynamically-provisioned-pv-and-pvc" src="../../images/lifecycle-of-dynamically-provisioned-pv-and-pvc.png">
+<img alt="lifecycle-of-dynamically-provisioned-pv-and-pvc" src="../../images/lifecycle-of-dynamically-provisioned-pv-and-pvc.png" class="r-stretch">
 
 notes:
 
