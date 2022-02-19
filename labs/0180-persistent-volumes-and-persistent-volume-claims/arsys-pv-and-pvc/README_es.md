@@ -117,7 +117,7 @@ NAME       READY   STATUS    RESTARTS   AGE
 test-pod   1/1     Running   0          49s
 ```
 
-Si miramos la información del `Pod`:
+Si mostramos la información del `Pod`, veremos que el volumen montado:
 
 ```shell
 $ kubectl describe pods test-pod -n demo-pvandpvc
@@ -157,7 +157,13 @@ Events:
   Normal  Started                 62s   kubelet                  Started container nginx
 ```
 
-Si miramos el objeto `PersisntentVolumeClaim` vemos cómo está siendo utilizado por el `Pod` `test-pod`:
+Podemos crear un fichero en el volumen para verificar que tenemos acceso de escritura en el volumen:
+
+```shell
+$ kubectl exec test-pod -n demo-pvandpvc -- touch /mnt/shared-data/test-file.txt
+```
+
+Si miramos el objeto `PersisntentVolumeClaim`, vemos cómo está siendo utilizado por el `Pod` `test-pod`:
 
 ```shell
  kubectl describe pvc shared-data-claim -n demo-pvandpvc         
@@ -178,7 +184,7 @@ Events:        <none>
 
 ## Siguiente paso
 
-En el siguiente taller, veremos qué ocurre si borramos el `Pod`.
+En el [siguiente taller](../arsys-failed-persistent-volumes/README_es.md), veremos qué ocurre si borramos el `Pod` y el `PersistentVolumeClaim`.
 
 ## Limpieza
 

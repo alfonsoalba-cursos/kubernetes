@@ -10,4 +10,4 @@ spec:
   accessModes:
   - ReadWriteOnce
   storageClassName: "ionos-enterprise-hdd"
-  volumeName: shared-data-volume
+  volumeName: shared-data-volume # We claim a particular volume by using this property
