@@ -30,7 +30,7 @@ Puedes seleccionar este espacio de nombres por defecto ejecutando:
 
 ```shell
 $ kubectl config set-context --current --namespace demo-emptydir
-Context "minikube" modified.
+Context "managed" modified.
 ```
 
 ## El `Deployment`
@@ -181,7 +181,7 @@ Volvemos a poner `default` como espacio de nombres por defecto:
 
 ```shell
 $ kubectl config set-context --current --namespace default
-Context "minikube" modified.
+Context "managed" modified.
 ```
 
 
