@@ -22,8 +22,9 @@
 * El `PersistentVolumeClaim` se borra
 * El `PersistenVolume` pasa a estado `Released`
 * Se aplica la política definida en `spec.persistentVolumeReclaimPolicy`
-  * `Delete`: se borra el volumen y el `PersistentVolumeClaim` se borran
-  * `Retain`: ambos se mantienen. El objeto `PersistentVolume` no se puede utilizar
+  * `Delete`: se borra el volumen y el `PersistentVolumeClaim`
+  * `Retain`: ambos se mantienen. El objeto `PersistentVolume` no se puede utilizarç
+  * `Recycle`: OBSOLETO Utilizar aprovisionamiento dinámico en su lugar
 
 notes:
 
