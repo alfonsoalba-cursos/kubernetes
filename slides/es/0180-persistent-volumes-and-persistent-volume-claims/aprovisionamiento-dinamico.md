@@ -32,7 +32,7 @@ La solución es el aprovisionamiento dinámico (_Dynamic provisioning_)
 
 Las dos piezas que permiten este aprovisionamient dinámico son:
 
-* `StorageClass`: Objeto de la API de kuernetes que permite a los administradores
+* `StorageClass`: Objeto de la API de kubernetes que permite a los administradores
   describir los tipos de almacenamiento persistente que existen en el cluster
 * `Provisioner`: crea espacios de almacenamiento de una clase determinada
 
