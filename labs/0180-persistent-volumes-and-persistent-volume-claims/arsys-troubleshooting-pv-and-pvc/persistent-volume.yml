@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+  finalizers:
+  - kubernetes.io/pv-protection
+  - external-attacher/cloud-ionos-com
+  name: shared-data-ts-volume
+  # namespace: demo-pvandpvc --> PersistentVolumes can't be namespaced
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  csi:
+    driver: cloud.ionos.com
+    fsType: ext4
+    volumeAttributes:
+      datacenterID: 3914a457-f19b-4bba-8742-b21fa61d4521
+    volumeHandle: datacenters/3914a457-f19b-4bba-8742-b21fa61d4521/volumes/44594ab4-4b21-4bf2-82fc-dcfb9ecc974e
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: enterprise.cloud.ionos.com/datacenter-id
+          operator: In
+          values:
+          - 3914a457-f19b-4bba-8742-b21fa61d4521
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: ionos-enterprise-hdd
+  volumeMode: Filesystem
