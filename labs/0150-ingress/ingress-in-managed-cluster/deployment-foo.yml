@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: foo-website-deployment
+  name: foo-website
   namespace: demo-ingress
   labels:
-    app: foo-website-deployement
+    app: foo-website
 spec:
   replicas: 3
   selector:

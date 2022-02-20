@@ -54,8 +54,8 @@ Este servicio tiene asignada una direción IP externa y está escuchando en los 
 
 ## Siguiente paso
 
-En el [Siguiente taller]() accederemos a las páginas web de _Foo Corporation_ y _Web Corporation_ utilizando
-dominios DNS a través del controlador `ingress-nginx`
+En el [Siguiente taller](../ingress-in-managed-cluster/README_es.md) accederemos a las páginas web de _Foo Corporation_ y _Web Corporation_ utilizando
+dominios DNS a través del controlador `ingress-nginx`.
 
 ## Limpieza
 

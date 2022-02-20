@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: foo-website-deployment
+  name: bar-website
   namespace: demo-ingress
   labels:
-    app: foo-website-deployement
+    app: bar-website
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: foo-website
+      app: bar-website
   template:
     metadata:
       labels:
-        app: foo-website
+        app: bar-website
     spec:
       containers:
       - name: web-server
-        image: docker.io/kubernetescourse/foo-website
+        image: docker.io/kubernetescourse/bar-website
         ports:
         - containerPort: 80

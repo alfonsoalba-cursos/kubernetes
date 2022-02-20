@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-ingress
+  namespace: demo-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: foo-website.alfonsoalba.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: foo-website
+            port:
+              number: 80
+  - host: bar-website.alfonsoalba.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: bar-website
+            port:
+              number: 80              
