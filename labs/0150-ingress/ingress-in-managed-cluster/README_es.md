@@ -168,7 +168,9 @@ Events:
   Normal  Sync    5m19s (x2 over 5m31s)  nginx-ingress-controller  Scheduled for sync
 ```
 
-Apunta tu navegador a [http://foo-website.alfonsoalba.com](http://foo-website.alfonsoalba.com)
+Apunta tu navegador a [http://foo-website.alfonsoalba.com](http://foo-website.alfonsoalba.com) o [http://bar-website.alfonsoalba.com](http://bar-website.alfonsoalba.com). Puede que
+necesites abrir las páginas en una ventana con navegación privada debido a la configuración
+HSTS del dominio que estamos utilizando.
 ## Limpieza
 
 Para limpiar, borramos el espacio de nombres:
