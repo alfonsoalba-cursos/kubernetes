@@ -16,5 +16,5 @@
 * [Metrics For Kubernetes System Components](https://kubernetes.io/docs/concepts/cluster-administration/system-metrics/)
 * [New Relic external metrics](https://docs.newrelic.com/docs/kubernetes-pixie/kubernetes-integration/newrelic-hpa-metrics-adapter/newrelic-metrics-adapter/) 
 * [DataDog external metrics](https://docs.datadoghq.com/agent/cluster_agent/external_metrics/?tab=helm)
-* [Building your own customo metrics api](https://medium.com/swlh/building-your-own-custom-metrics-api-for-kubernetes-horizontal-pod-autoscaler-277473dea2c1)
+* [Building your own custom metrics api](https://medium.com/swlh/building-your-own-custom-metrics-api-for-kubernetes-horizontal-pod-autoscaler-277473dea2c1)
 

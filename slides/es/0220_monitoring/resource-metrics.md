@@ -67,7 +67,9 @@ Utiliza también `metrics.k8s.io`
 [Repositorio de la aplicación `kube-state-metrics`](https://github.com/kubernetes/kube-state-metrics)
 
 
-`metrics-server` ofrece métricas agregadas (que lee a de kubelet través del _Summary API_)
-para que sean utilizadas por `HorizontalPodAutoscaler`. `kube-state-metrics` ofrece
+`metrics-server` ofrece métricas agregadas (que lee de kubelet través del _Summary API_)
+para que sean utilizadas por `HorizontalPodAutoscaler`. 
+
+`kube-state-metrics` ofrece
 un conjunto diferente de métricas que reflejan el estado de los recursos de Kubernetes
 en ese momento.

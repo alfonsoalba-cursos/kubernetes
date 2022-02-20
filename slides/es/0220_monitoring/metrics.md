@@ -1,6 +1,6 @@
 ### Métricas
 
-* Métricas facilitas por Kubernetes - `/metrics`  
+* Métricas facilitadas por Kubernetes - `/metrics`  
 * Métricas de recursos - `metrics.k8s.io`
 * Métricas externas - `external.metrics.k8s.io`
 * Métricas personalizadas - `custom.metrics.k8s.io`
@@ -18,13 +18,14 @@ Empezaremos por la primera de ellas.
 
 ### Métricas
 
-Kubernetes facilita, de serie, dos APIs a los que podemos acceder para obtener
+Kubernetes facilita, de serie, dos APIs a las que podemos acceder para obtener
 métricas sobre el estado de nuestro cluster
 
 * `/metrics`
 * El propio proceso `kubelet` que se ejecuta en cada nodo
 
-Estas dos APIs exportan la información en formato compatible con Prometheus.
+Estas dos APIs exportan la información en formato compatible con
+[Prometheus](https://prometheus.io/).
 
 notes:
 
