@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+  namespace: demo-dynamic-provisioning
+spec:
+  volumes:
+  - name: cache
+    persistentVolumeClaim:
+      claimName: 15gi-hdd
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["sleep"]
+    args: ["3600"]
+    volumeMounts:
+    - name: cache
+      mountPath: /mnt/cache

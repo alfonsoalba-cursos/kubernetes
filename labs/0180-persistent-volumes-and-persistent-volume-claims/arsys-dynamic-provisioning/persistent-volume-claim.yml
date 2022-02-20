@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: 15gi-hdd
+  namespace: demo-dynamic-provisioning
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ionos-enterprise-hdd
+  resources:
+    requests:
+      storage: 15Gi
