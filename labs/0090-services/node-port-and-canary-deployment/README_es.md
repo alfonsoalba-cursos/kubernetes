@@ -106,7 +106,8 @@ spec:
 ```
 
 En [este enlace](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec)
-podemos ver el formato de selector que podemos utilizar.
+podemos ver que el campo `selector` acepta un mapa (`map[string]string`) lo que nos dice que se trata de un
+basado en igualdad (_equality-based selector_). 
 
 ### contexto `minikube`
 
