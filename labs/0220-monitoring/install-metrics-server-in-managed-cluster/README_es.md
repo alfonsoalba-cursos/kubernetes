@@ -16,7 +16,7 @@ service/metrics-server                ClusterIP   10.233.52.120   <none>        
 pod/metrics-server-5b6dd75459-sxw85              1/1     Running   0          4h30m
 ```
 
-Si ya está instalado, puedes pasar directamente al siguiente taller.
+Si ya está instalado, puedes pasar directamente a [la siguiente sección](#accediento-a-la-informaci%C3%B3n)
 
 ## Instalación
 
@@ -45,7 +45,7 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/late
 
 También es posible instalarlo utilizando [Helm](https://artifacthub.io/packages/helm/metrics-server/metrics-server).
 
-## Accediento a la información
+## Accediendo a la información
 
 ### `kubectl top`
 
