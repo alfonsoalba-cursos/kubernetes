@@ -2,5 +2,5 @@
 * [_Resource metrics_](#monitoring-resource-metrics)
 * [`external.metrics.k8s.io`](#monitoring-external-metrics)
 * [`custom.metrics.k8s.io`](#monitoring-custom-metrics)
-* [Limitación de recursos](#limiting-resources)
+* [Limitación de recursos](#monitoring-limiting-resources)
 * [_Quality of Service_ (QoS)](#qos)
