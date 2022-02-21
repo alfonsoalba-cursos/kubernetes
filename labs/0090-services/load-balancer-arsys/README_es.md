@@ -115,12 +115,17 @@ Events:
 
 ## Accediendo al servicio
 
-Si apuntamos nuestro navegador a la direccin `http://93.93.114.54` veremos la página web.
+Si apuntamos nuestro navegador a la direcciónn `http://93.93.114.54`, veremos la página web.
 
 ## `DataCenter`
 
 En el panel de gestión de nuestro _Data Center_, no veremos el balanceador de carga
 que se ha creado. 
+
+Si podemos ver la dirección IP que se nos ha asignado. Para ello, accedemos al DCD y vamos a
+`MANAGER Resources -> IP Manager`. Se desplegará una ventana emergente, con dos paneles. En
+el panel de la izquierda, seleccionamos "Managed by kubernetes". En el panel de la derecha
+veremos la IP aignada al balanceador, que en este ejemplo es `93.93.114.54`.
 
 ## Limpieza
 
