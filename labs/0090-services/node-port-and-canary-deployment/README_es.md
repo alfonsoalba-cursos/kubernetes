@@ -123,7 +123,7 @@ http://192.168.1.162:31795
 
 Vamos a actualizar a la versión 2.0 de nuestra web utilizando un _canary deployment_.
 
-Creamos un nuevo `Service` que llamaremos `foo-website-canary` y que guardaremos en el fichero
+Creamos un nuevo `Deploymentcat` que llamaremos `foo-website-canary` y que guardaremos en el fichero
 [`deployment-v 2.0-step1.yml`](./deployment-v 2.0-step1.yml):
 * Los `Pods` tendrán las etiquetas siguientes:
   * `app: foo-website-pod`: que hará que el servicio de tipo `NodePort` que ya tenemos active
