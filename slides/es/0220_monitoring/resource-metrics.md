@@ -73,3 +73,22 @@ para que sean utilizadas por `HorizontalPodAutoscaler`.
 `kube-state-metrics` ofrece
 un conjunto diferente de métricas que reflejan el estado de los recursos de Kubernetes
 en ese momento.
+
+^^^^^^
+
+### _Resource metrics_: ¿Cómo consultarla?
+
+* `kubectl top`
+* `kubectl get --raw /apis/metrics.k8s.io/v1beta1/`
+
+notes:
+
+* `kubectl top` muestra el uso de recursos de los nodos del cluster o de los `Pods`
+* `kubectl get --raw /apis/metrics.k8s.io/v1beta1/` nos da la información en formato json.
+  Podemos consultar la información de la siguiente manera:
+
+  ```shell
+  $ kubectl get --raw /apis/metrics.k8s.io/v1beta1/nodes/<NODE_NAME>
+
+  $ kubectl get --raw /apis/metrics.k8s.io/v1beta1/namespaces/<NAMESPACE>/pods/<POD_NAME>
+  ```
