@@ -44,6 +44,10 @@ Las comas de los requisitos se comportan como un operador AND (&&) lógico.
 * _equality-based_:  `=`, `==` y `!=`
 * _set-based_: `In`, `notIn` y `Exists`
 
+notes:
+
+Como se indica en la [documentación de Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#equality-based-requirement)
+los operadores `=` y `==` son sinónimos.
 
 ^^^^^^
 
