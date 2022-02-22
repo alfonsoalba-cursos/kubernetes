@@ -1,0 +1,96 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo-ts-accessmodes
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: 15gi-hdd-rox
+  namespace: demo-ts-accessmodes
+spec:
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: ionos-enterprise-hdd
+  resources:
+    requests:
+      storage: 15Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: 15gi-hdd-rwo
+  namespace: demo-ts-accessmodes
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ionos-enterprise-hdd
+  resources:
+    requests:
+      storage: 15Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: 15gi-hdd-rwx
+  namespace: demo-ts-accessmodes
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ionos-enterprise-hdd
+  resources:
+    requests:
+      storage: 15Gi
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foo-website
+  namespace: demo-ts-accessmodes
+  labels:
+    app: foo-website
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: foo-website
+  template:
+    metadata:
+      labels:
+        app: foo-website
+    spec:
+      containers:
+      - name: nginx
+        image: kubernetescourse/foo-website
+        env: # Using the Downward API
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: cache
+          mountPath: /mnt/cache
+          subPathExpr: $(POD_NAME)
+        - name: rox-volume
+          mountPath: /mnt/rox-volume
+        - name: rwo-volume
+          mountPath: /mnt/rwo-volume
+
+      volumes:
+      - name: cache
+        persistentVolumeClaim:
+          claimName: 15gi-hdd-rwx
+      - name: rox-volume
+        persistentVolumeClaim:
+          claimName: 15gi-hdd-rox
+      - name: rwo-volume
+        persistentVolumeClaim:
+          claimName: 15gi-hdd-rwo
