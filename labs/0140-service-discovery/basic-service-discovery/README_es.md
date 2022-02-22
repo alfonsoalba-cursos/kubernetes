@@ -116,7 +116,7 @@ $ kubectl exec -ti foo-website-689949cc58-8cfdh -- bash
 root@foo-website-689949cc58-8cfdh:/$
 ```
 
-Utilizando el nombre del contenedor, podemos acceder al servicio. Por ejemplo:
+Utilizando el nombre del servicio, podemos acceder al servicio. Por ejemplo:
 
 ```shell
 root@foo-website-689949cc58-8cfdh:/$ curl -s bar-website | grep \<title\>
