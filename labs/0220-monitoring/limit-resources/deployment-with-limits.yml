@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foo-website
+  namespace: demo-limitresources
+  labels:
+    app: foo-website
+  annotations:
+    kubernetes.io/change-cause: "CPU Limit - 1m"    
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: foo-website
+  template:
+    metadata:
+      labels:
+        app: foo-website
+    spec:
+      containers:
+      - name: nginx
+        image: kubernetescourse/foo-website
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "1m"
+
