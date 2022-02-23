@@ -60,9 +60,9 @@ emptydir-54855db856-wns6w   1/1     Running   0          78s
 Si miramos los `Pods` y los ficheros que se han creado en la carpeta `/cache`:
 
 ```shell
-for pod in $(kubectl.exe get pods -n demo-emptydir | awk '{ print $1 }' | grep -v NAME)
+for pod in $(kubectl get pods -n demo-emptydir | awk '{ print $1 }' | grep -v NAME)
 do 
-  kubectl.exe exec $pod --container nginx -n demo-emptydir -- ls /cache/
+  kubectl exec $pod --container nginx -n demo-emptydir -- ls /cache/
 done
 
 20220219-09:15:17-emptydir-7dcfc6cf7b-b7qh4-init.txt
