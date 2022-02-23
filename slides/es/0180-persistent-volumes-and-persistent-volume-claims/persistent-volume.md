@@ -161,7 +161,7 @@ Los diferentes tipos de volúmenes, junto con sus propiedades,
 
 ### `PersistentVolumes`: Modos de acceso
 
-* `ReadWriteOnce` (`RWO`): Sólo un nodo puede montar el modo en modo lectura escritura
+* `ReadWriteOnce` (`RWO`): Sólo un nodo puede montar el volumen en modo lectura escritura
 * `ReadOnlyMany` (`ROX`): Múltiples nodos pueden montar el volumen en modo lectura
 * `ReadWriteMany` (`RWX`): Múltiples nodos pueden montar el volumen en lectura escritura
 * `ReadWriteOncePod` (`RWOP`): Sólo un nodo puede montar el volumen en modo lectura escritura.

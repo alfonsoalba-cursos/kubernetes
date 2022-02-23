@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foo-website
+  namespace: demo-deployment-rwo
+  labels:
+    app: foo-website
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: foo-website
+  template:
+    metadata:
+      labels:
+        app: foo-website
+    spec:
+      containers:
+      - name: nginx
+        image: kubernetescourse/foo-website
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: rwo-volume
+          mountPath: /mnt/rwo-volume
+
+      volumes:
+      - name: rwo-volume
+        persistentVolumeClaim:
+          claimName: 15gi-hdd-rwo
