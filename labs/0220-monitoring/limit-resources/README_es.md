@@ -42,7 +42,7 @@ A continuación, creamos un `Deployment` que desplegará tres réplicas de la p�
 Tras unos segundos, los `Pods` estarán en esado `Running`:
 
 ```shell
-$ kubectl get all -n demo-accessmodes
+$ kubectl get all -n demo-limitresources
 NAME                               READY   STATUS    RESTARTS   AGE
 pod/foo-website-6d8c87fd46-2zppm   1/1     Running   0          52s
 pod/foo-website-6d8c87fd46-89lpk   1/1     Running   0          52s
