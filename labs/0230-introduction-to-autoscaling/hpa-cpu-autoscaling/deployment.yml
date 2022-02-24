@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-app
+  namespace: demo-hpa
+  labels:
+    app: cpu-app
+  annotations:
+    kubernetes.io/change-cause: "Initial deployment"    
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cpu-app
+  template:
+    metadata:
+      labels:
+        app: cpu-app
+    spec:
+      containers:
+      - name: apache
+        image: kubernetescourse/cpu-intensive-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources: # We need to set requests for the HPA to work correctly
+          requests:
+            cpu: 500m
+
+
