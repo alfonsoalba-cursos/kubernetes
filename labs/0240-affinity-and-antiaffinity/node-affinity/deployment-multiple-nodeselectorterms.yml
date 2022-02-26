@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foo-website
+  namespace: demo-nodeaffinity
+  labels:
+    app: foo-website
+  annotations:
+    kubernetes.io/change-cause: "Initial deployment"    
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: foo-website
+  template:
+    metadata:
+      labels:
+        app: foo-website
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: size
+                operator: In
+                values:
+                - small
+            - matchExpressions:
+              - key: size
+                operator: In
+                values:
+                - medium   
+      containers:
+      - name: nginx
+        image: kubernetescourse/foo-website
+        ports:
+        - containerPort: 80
+
+
