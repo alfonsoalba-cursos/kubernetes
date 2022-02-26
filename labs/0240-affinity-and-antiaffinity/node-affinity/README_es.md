@@ -159,5 +159,5 @@ Por último, quitamos las etiquetas de los nodos:
 ```shell
 $ kubectl label nodes standardnodes-paka7v2imr size-
 $ kubectl label nodes standardnodes-wypldyeewy size-
-
+$ kubectl label nodes standardnodes-zuf5eywgar size-
 ```
