@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config-map
+  namespace: demo-podaffinity-wordpress
+data:
+  username: wordpress
+  database: wordpress
+  host: mysql # This is the name of the headless service
+  port: "3306"
