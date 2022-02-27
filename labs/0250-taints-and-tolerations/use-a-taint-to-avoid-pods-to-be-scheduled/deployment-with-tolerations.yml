@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: demo-taints
+  name: foo-website
+  labels:
+    app: foo-website
+  annotations:
+    kubernetes.io/change-cause: "Deploy version with tolerations"    
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: foo-website-pod
+  template:
+    metadata:
+      labels:
+        app: foo-website-pod
+    spec:
+      tolerations:
+      - key: memory-optimized
+        operator: Equal
+        value: "true"
+        effect: NoSchedule
+      containers:
+      - name: foo-website
+        image: kubernetescourse/foo-website
+        ports:
+        - containerPort: 80
