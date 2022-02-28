@@ -21,3 +21,10 @@
 .reveal ul.list-unstyled {
     list-style-type: none;
 }
+
+
+/* Styles for two column layout */
+.two-column-container{
+  display: grid;
+  grid-auto-flow: column;
+}

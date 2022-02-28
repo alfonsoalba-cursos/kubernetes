@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Administración de Kubernetes</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/sky.css">
+		<link rel="stylesheet" href="../../dist/custom.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div id="cc-license">
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+				<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" />
+			</a>
+			This work is licensed under a 
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+			©️ 2019 - 2022 Alfonso Alba García
+		</div>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3 style="text-transform: none;">Introducción a la administración de Kubernetes</h3>
+				</section>
+				<section id="admin-toc"
+					data-markdown="toc.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				
+				<section id="admin-master-node"
+					data-markdown="../0050_arquitectura/nodo-maestro.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				
+				<section id="admin-resource-quotas"
+					data-markdown="cuotas-de recursos.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				
+				<section id="admin-namespaces"
+					data-markdown="../0120-namespaces/namespaces.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				
+				<section id="admin-namespaces-resources"
+					data-markdown="limites-por-namespace.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				
+				<section id="admin-users"
+					data-markdown="usuarios.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				
+				<section id="admin-authorization"
+					data-markdown="autorizacion.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				
+				<section id="admin-node-maintenance"
+					data-markdown="mantenimiento-de-nodos.md"
+					data-separator="^------"
+					data-separator-vertical="^\^\^\^\^\^\^"
+					data-charset="utf8">
+				</section>				
+				<section id="admin-summary"
+				  data-markdown="summary.md"
+				  data-separator="^------"
+				  data-separator-vertical="^\^\^\^\^\^\^"
+				  data-charset="utf8">
+				</section>			
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

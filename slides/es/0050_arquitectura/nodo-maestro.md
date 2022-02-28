@@ -1,3 +1,4 @@
+<!-- Este conjunto de diapositivas se utiliza en la sección Introducción a al administración de Kubernetes -->
 ### El nodo maestro
 
 <img src="../../images/master_node_architecture.png" alt="Master node architecture" class="r-stretch">

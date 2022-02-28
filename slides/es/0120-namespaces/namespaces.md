@@ -1,3 +1,5 @@
+<!-- Este conjunto de diapositivas se utiliza en la sección Introducción a al administración de Kubernetes -->
+
 ### `Namespace`
 
 Mecanismo para aislar grupos de recursos dentro de un mismo cluster.
