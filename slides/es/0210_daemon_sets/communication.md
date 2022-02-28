@@ -2,10 +2,10 @@
 
 _*Push*_
 
-notes:
-
 En lugar de comunicarnos con el `Pod` para extraer la información, este 
 envía la información a otro servicio, como por ejemplo una base de datos.
+
+notes:
 
 Ejemplo: Filebeat de Elasticsearch
 

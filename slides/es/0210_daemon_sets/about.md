@@ -131,13 +131,14 @@ Al utilizar el planificador estándar, estos problemas desaparecen.
 ### `Tains and tolerations`
 
 | key | effect | version |
-| === | ====== | ======= |
+| --- | ------ | ------- |
 | node.kubernetes.io/not-ready | NoExecute | 1.13+ | 
 | .../unreachable | NoExecute | 1.13+ |
 | .../disk-pressure | NoSchedule | 1.8+ |
 | .../memory-pressure | NoSchedule | 1.8+ |
 | .../unschedulable | NoSchedule | 1.12+ |
 | .../network-unavailable | NoSchedule | 1.12+ |
+
 notes:
 
 Estos `tolerations` garantizan que los `Pods` que de un `DaemonSet` no se
