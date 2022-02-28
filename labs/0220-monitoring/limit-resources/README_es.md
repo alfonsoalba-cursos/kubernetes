@@ -32,9 +32,6 @@ $ kubectl config set-context --current --namespace demo-limitresources
 Context "managed" modified.
 ```
 
-
-## `Deployment`
-
 ## `Deployment`
 
 A continuación, creamos un `Deployment` que desplegará tres réplicas de la página web de Foo Corporation ([`deployment.yml`](./deployment.yml)).
