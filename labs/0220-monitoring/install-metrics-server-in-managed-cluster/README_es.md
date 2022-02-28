@@ -40,10 +40,49 @@ que transcribo aquí por conveniencia:
 Para instalarlo, utilizaremos el manifiesto que se facilita en el repositorio:
 
 ```shell
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+$ wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
 
-También es posible instalarlo utilizando [Helm](https://artifacthub.io/packages/helm/metrics-server/metrics-server).
+Una vez descargado el fichero, buscaremos la definición del `Deployment` dentro del fichero, y en el comando 
+de ejecución del contenedor, añadiremos la opción `--kubelet-insecure-tls`: 
+
+```yaml
+...
+...
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    k8s-app: metrics-server
+  name: metrics-server
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      k8s-app: metrics-server
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        k8s-app: metrics-server
+    spec:
+      containers:
+      - args:
+        - --cert-dir=/tmp
+        - --secure-port=4443
+        - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+        - --kubelet-use-node-status-port
+        - --kubelet-insecure-tls                      <<<<<<--------------------- AÑADIR ESTA LÍNEA
+        - --metric-resolution=15s
+        image: k8s.gcr.io/metrics-server/metrics-server:v0.6.1
+        imagePullPolicy: IfNotPresent
+```
+
+También es posible instalarlo utilizando [Helm](https://artifacthub.io/packages/helm/metrics-server/metrics-server),
+añadiendo la opción `--kubelet-insecure-tls` cuando configueremos el Helml Chart.
 
 ## Accediendo a la información
 
