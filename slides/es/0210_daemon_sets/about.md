@@ -128,7 +128,7 @@ Al utilizar el planificador estándar, estos problemas desaparecen.
 
 ^^^^^^
 
-### `Tains and tolerations`
+### _`Taints` and `Tolerations`_
 
 | key | effect | version |
 | --- | ------ | ------- |
