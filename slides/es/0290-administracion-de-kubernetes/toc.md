@@ -5,3 +5,5 @@
 * [Usuarios](#admin-users)
 * [Autorización](#admin-authorization)
 * [Mantenimiento de nodos](#admin-node-maintenance)
+* [Alta disponibilidad](#admin-high-availability)
+* [_Admission controllers_](#admin-admission-controllers)
